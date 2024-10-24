@@ -1,0 +1,25 @@
+#root {
+  max-width: 1280px;
+  margin: 0 auto;
+  padding: 2rem;
+  text-align: center;
+}
+
+.heading {
+  position: relative;
+  font-size: 1rem;
+  font-weight: 700;
+  width: fit-content;
+  margin: 0 0 1rem;
+  top:30%;
+  left:50%;
+  transform: translate(-50%, -50%);
+  border: aqua 0.05rem solid;
+}
+
+.subheading {
+  font-size: 0.5rem;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  border: hotpink 0.05rem solid;
+}
