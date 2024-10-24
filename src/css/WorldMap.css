@@ -7,6 +7,12 @@
     top: 50%;
     left: 50%;
     transform: translate(-50%, -50%);
+
     border: 0.05rem solid #FFF;
     border-radius: 0.5rem;
+
+    transition: transform .5s; /* Animation */
+    transform-origin: left;
+
+    z-index: 1;
 }
