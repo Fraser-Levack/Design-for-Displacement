@@ -1,7 +1,7 @@
-import './css/TextBox.css';
-import './css/App.css';
-import './css/MainAnimation.css';
-import useIntersectionObserver from './useIntersectionObserver';
+import '../css/TextBox.css';
+import '../css/App.css';
+import '../css/MainAnimation.css';
+import useIntersectionObserver from '../useIntersectionObserver.ts';
 
 interface Props {
     children: string;

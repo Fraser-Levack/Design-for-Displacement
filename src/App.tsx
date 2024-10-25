@@ -1,7 +1,7 @@
 //import MainHeading from './MainHeading.tsx';
-import WorldMap from "./WorldMap.tsx";
-import Image from "./Image.tsx";
-import TextBox from "./TextBox.tsx";
+import WorldMap from "./components/WorldMap.tsx";
+import Image from "./components/Image.tsx";
+import TextBox from "./components/TextBox.tsx";
 import './css/App.css';
 
 function App() {

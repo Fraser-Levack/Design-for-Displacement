@@ -1,7 +1,7 @@
-import { ComposableMap, Geographies, Geography} from "react-simple-maps"
+import { ComposableMap, Geographies, Geography} from "react-simple-maps";
 //import { useState } from "react";
-import "./css/WorldMap.css"
-import "./css/App.css"
+import "../css/WorldMap.css"
+import "../css/App.css"
 import MainHeading from "./MainHeading.tsx";
 
 interface GeographyType {
