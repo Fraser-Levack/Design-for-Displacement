@@ -9,6 +9,7 @@
   transform: translateX(0);
 }
 
+
 .reveal-right {
     opacity: 0;
     transform: translateX(100%);
