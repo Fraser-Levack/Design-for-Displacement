@@ -1,13 +1,19 @@
-//import MainHeading from './MainHeading.tsx';
+import MainHeading from './components/MainHeading.tsx';
 import WorldMap from "./components/WorldMap.tsx";
 import Image from "./components/Image.tsx";
 import BigImage from "./components/BigImage.tsx";
 import TextBox from "./components/TextBox.tsx";
-import CategroySubheading from "./components/CategroySubheading.tsx";
+import CategorySubheading from "./components/CategorySubheading.tsx";
 import './css/App.css';
 
 function App() {
   return (
+  <>
+    <div className="top-heading">
+    <MainHeading>Design for Displacement</MainHeading>
+    <MainHeading isSubheading={true}>A project by Dundee Uni</MainHeading>
+    </div>
+
     <div className="main-content">
 
         <WorldMap fill="#333" stroke="#000"/>
@@ -30,7 +36,7 @@ function App() {
 
         <BigImage direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" />
 
-        <CategroySubheading>SubHeading - info about x</CategroySubheading>
+        <CategorySubheading>SubHeading - info about x</CategorySubheading>
 
         <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -46,9 +52,10 @@ function App() {
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
-        </TextBox>
+    </TextBox>
 
     </div>
+  </>
   );
 }
 
