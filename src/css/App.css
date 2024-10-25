@@ -1,27 +1,66 @@
+
 #root {
-  margin: 0 auto;
-  padding: 2rem;
+  margin: 0 0;
+  padding-top: 0;
+  padding-left: 1rem;
+  padding-right: 1rem;
   text-align: center;
 }
 
+.main-content {
+  /* using grid display */
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+}
+
+.react-map {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  transform: translate(0%, -10%);
+
+}
+
 .heading {
-  position: relative;
-  font-size: 1rem;
+  position: absolute;
+  font-size: 0.8rem;
   font-weight: 700;
   width: fit-content;
   margin: 0 0 1rem;
-  top:50%;
-  left:50%;
-  transform: translate(-50%, -50%);
   border: aqua 0.05rem solid;
   border-radius: 0.5rem;
+
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+
   z-index: 2;
 }
 
 .subheading {
-  font-size: 0.5rem;
+  font-size: 0.3rem;
   font-weight: 400;
   margin: 0 0 1rem;
   border: hotpink 0.05rem solid;
   border-radius: 0.5rem;
+
+  transform: translate(-50%, 250%);
+}
+
+.react-image {
+  object-fit: fill;
+  height: 60%;
+  width:90%;
+  border: limegreen 0.05rem solid;
+  border-radius: 0.5rem;
+  padding: 0.2rem;
+
+  z-index: 1;
+}
+
+.react-text-box {
+  object-fit: contain;
+  height: 60%;
+  width:90%;
+  padding: 0.2rem;
+  z-index: 1;
 }

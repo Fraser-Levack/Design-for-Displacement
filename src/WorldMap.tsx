@@ -1,6 +1,7 @@
 import { ComposableMap, Geographies, Geography} from "react-simple-maps"
 //import { useState } from "react";
 import "./css/WorldMap.css"
+import "./css/App.css"
 import MainHeading from "./MainHeading.tsx";
 
 interface GeographyType {
@@ -26,7 +27,7 @@ function WorldMap ({fill, stroke} : Props) {
         <>
         <MainHeading>Design for Displacement</MainHeading>
         <MainHeading isSubheading={true}>A project by Dundee Uni</MainHeading>
-        <ComposableMap className="world-map" viewBox="0 0 850 600">
+        <ComposableMap className="world-map react-map" viewBox="0 0 850 600">
 
           <Geographies geography={geoUrl}>
               {({ geographies }: { geographies: GeographyType[] }) =>

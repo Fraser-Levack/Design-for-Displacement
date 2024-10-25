@@ -1,0 +1,8 @@
+p {
+    font-size: 0.25rem;
+    font-weight: 400;
+    margin: 0 0 1rem;
+    border: hotpink 0.05rem solid;
+    border-radius: 0.5rem;
+    text-align: left;
+}
