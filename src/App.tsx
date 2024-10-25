@@ -1,3 +1,4 @@
+import { useState } from 'react';
 import MainHeading from './components/MainHeading.tsx';
 import WorldMap from "./components/WorldMap.tsx";
 import Image from "./components/Image.tsx";
@@ -7,11 +8,17 @@ import CategorySubheading from "./components/CategorySubheading.tsx";
 import './css/App.css';
 
 function App() {
+    const [isActive, setIsActive] = useState(false);
+
+    const handleClick = () => {
+        setIsActive(true);
+    };
+
   return (
-  <>
+  <div onClick={handleClick}>
     <div className="top-heading">
-    <MainHeading>Design for Displacement</MainHeading>
-    <MainHeading isSubheading={true}>A project by Dundee Uni</MainHeading>
+    <MainHeading isActive={isActive}>Design for Displacement III</MainHeading>
+    <MainHeading isSubheading={true} isActive={isActive}>A project by Dundee Uni</MainHeading>
     </div>
 
     <div className="main-content">
@@ -36,7 +43,7 @@ function App() {
 
         <BigImage direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" />
 
-        <CategorySubheading>SubHeading - info about x</CategorySubheading>
+        <CategorySubheading>SubHeading</CategorySubheading>
 
         <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -55,7 +62,7 @@ function App() {
     </TextBox>
 
     </div>
-  </>
+  </div>
   );
 }
 

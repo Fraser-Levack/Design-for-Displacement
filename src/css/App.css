@@ -25,12 +25,41 @@
   transform: translateX(-50%);
 }
 
+.heading-active {
+  position: relative;
+  top: 0;
+  left: 0;
+  height: 200%;
+
+  font-size: 0.4rem;
+  font-weight: 500;
+  width: fit-content;
+  margin: 0 0 2rem;
+  border: aqua 0.05rem solid;
+  border-radius: 0.5rem;
+  transform: translateY(-150%);
+  transition: all 0.5s ease;
+}
+
 .subheading {
   font-size: 0.3rem;
   font-weight: 400;
   margin: 0 0 1rem;
   border: hotpink 0.05rem solid;
   border-radius: 0.5rem;
+
+  transition: all 0.5s ease;
+  opacity: 1;
+}
+
+.subheading-active {
+
+  font-size: 0.3rem;
+  font-weight: 400;
+  margin: 0 0 1rem;
+  border: hotpink 0.05rem solid;
+  border-radius: 0.5rem;
+  opacity: 0;
 }
 
 .main-content {
