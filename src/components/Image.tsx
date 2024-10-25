@@ -1,5 +1,5 @@
-import './css/app.css';
-import './css/MainAnimation.css';
+import '../css/app.css';
+import '../css/MainAnimation.css';
 import useIntersectionObserver from '../useIntersectionObserver';
 
 interface Props {
