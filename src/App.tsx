@@ -23,7 +23,7 @@ function App() {
 
     <div className="main-content">
 
-        <WorldMap fill="#333" stroke="#000"/>
+        <WorldMap fill="#333" stroke="#000" isActive={isActive}/>
 
         <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
@@ -43,7 +43,7 @@ function App() {
 
         <BigImage direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" />
 
-        <CategorySubheading>SubHeading</CategorySubheading>
+        <CategorySubheading>SubHeading - info about x</CategorySubheading>
 
         <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.

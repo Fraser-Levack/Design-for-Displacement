@@ -48,7 +48,6 @@
   border: hotpink 0.05rem solid;
   border-radius: 0.5rem;
 
-  transition: all 0.5s ease;
   opacity: 1;
 }
 
@@ -60,6 +59,7 @@
   border: hotpink 0.05rem solid;
   border-radius: 0.5rem;
   opacity: 0;
+  transition: all 0.5s ease;
 }
 
 .main-content {
@@ -73,7 +73,17 @@
   grid-column-start: 1;
   grid-column-end: 3;
   transform: translate(0%, -15%);
+  transition: transform .5s;
+  transform-origin: center;
+  z-index: 1;
+}
 
+.react-map-active {
+  grid-column-start: 1;
+  grid-column-end: 3;
+  transform: translate(0%, -15%) scale(1.5);
+  transition: transform .5s;
+  transform-origin: center;
   z-index: 1;
 }
 
