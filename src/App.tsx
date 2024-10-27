@@ -33,13 +33,13 @@ function App() {
 
         <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
 
-        <Image direction="left" source="image_placeholder_wire.jpg" altText="placeholder" />
-
-        <TextBox direction="right">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
         </TextBox>
+
+        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
 
         <BigImage direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" />
 
@@ -53,13 +53,13 @@ function App() {
 
         <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
 
-        <Image direction="left" source="image_placeholder_wire.jpg" altText="placeholder" />
-
-        <TextBox direction="right">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
-    </TextBox>
+        </TextBox>
+
+        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
 
     </div>
   </div>

@@ -62,13 +62,13 @@
 .main-content {
   /* using grid display */
   display: grid;
-  grid-template-columns: 1fr 1fr;
+  grid-template-columns: 1fr 1fr 1fr;
   transform: translate(0%, -10%);
 }
 
 .react-map {
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
   transform: translate(0%, -15%);
   transition: transform .5s;
   transform-origin: center;
@@ -97,14 +97,14 @@
 
 .react-big-image {
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
 
   object-fit: contain;
   width:100%;
-  height: 70%;
+  height: 75%;
   border: limegreen 0.2rem solid;
   border-radius: 0.5rem;
-  padding: 1rem;
+  padding: 0.5rem;
   z-index: 1;
 }
 
@@ -114,11 +114,13 @@
   width:90%;
   padding: 1rem;
   z-index: 1;
+  grid-column-start: 1;
+  grid-column-end: 3;
 }
 
 .react-category-sub {
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
 
   font-size: 1.5rem;
   font-weight: 400;
