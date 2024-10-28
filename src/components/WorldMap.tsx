@@ -15,20 +15,20 @@ interface Props {
 
 
 function WorldMap({ fill, stroke, isActive }: Props) {
-    const [viewBox, setViewBox] = useState("0 0 850 600");
-    const desiredViewBox = {left:0, up:0, width: 113, height: 75};
+    const [viewBox, setViewBox] = useState("0 -100 850 600");
+    const desiredViewBox = {left:0, up:-50, width: 113, height: 75};
 
     useEffect(() => {
 
         if (isActive) {
-            let currentViewBox = { left:0, up:0, width: 850, height: 600 };
+            let currentViewBox = { left:0, up:-100, width: 850, height: 600 };
              const interval = setInterval(() => {
                 if (currentViewBox.width > desiredViewBox.width && currentViewBox.height > desiredViewBox.height) {
                     currentViewBox = {
                         width: currentViewBox.width - 10,
                         height: currentViewBox.height - 10,
                         left: currentViewBox.left + 4,
-                        up: currentViewBox.up + 3
+                        up: currentViewBox.up + 4.5
                     };
                     setViewBox(`${currentViewBox.left} ${currentViewBox.up} ${currentViewBox.width} ${currentViewBox.height}`);
                 } else {
@@ -37,7 +37,7 @@ function WorldMap({ fill, stroke, isActive }: Props) {
             }, 25);
              return () => clearInterval(interval); // Adjust the interval time as needed
         } else {
-            setViewBox("0 0 850 600");
+            setViewBox("0 -100 850 600");
         }
     }, [isActive, desiredViewBox.height, desiredViewBox.width]);
 

@@ -2,7 +2,6 @@ import { useState } from 'react';
 import MainHeading from './components/MainHeading.tsx';
 import WorldMap from "./components/WorldMap.tsx";
 import Image from "./components/Image.tsx";
-import BigImage from "./components/BigImage.tsx";
 import TextBox from "./components/TextBox.tsx";
 import CategorySubheading from "./components/CategorySubheading.tsx";
 import './css/App.css';
@@ -41,7 +40,7 @@ function App() {
             nisi ut aliquip ex ea commodo consequat.
         </TextBox>
 
-        <BigImage direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" />
+        <Image direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" span={[1, 4]}/>
 
         <CategorySubheading>SubHeading</CategorySubheading>
 
