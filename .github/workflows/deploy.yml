@@ -1,11 +1,10 @@
-# .github/workflows/deploy.yml
-
 name: Deploy
 
 on:
   push:
     branches:
       - main
+  workflow_dispatch:
 
 jobs:
   build:
@@ -13,6 +12,8 @@ jobs:
 
     steps:
       - uses: actions/checkout@v2
+        with:
+          persist-credentials: false
       - name: Set up Node.js
         uses: actions/setup-node@v2
         with:
@@ -26,7 +27,13 @@ jobs:
           git fetch
           git branch -D gh-pages || true
           git push origin --delete gh-pages || true
+      - name: Set up Git user
+        run: |
+          git config --global user.email "flevack28@gmail.com"
+          git config --global user.name "Fraser-Levack"
       - name: Deploy to GitHub Pages
+        env:
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
         run: |
           npm install -g gh-pages
-          gh-pages -d build
+          gh-pages -d build -r "https://${{ secrets.GH_PAT }}@github.com/${{ github.repository }}.git"
