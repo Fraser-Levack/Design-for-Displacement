@@ -63,6 +63,7 @@
   /* using grid display */
   display: grid;
   grid-template-columns: 1fr 1fr 1fr;
+  grid-gap: 4rem;
   transform: translate(0%, -10%);
 }
 
@@ -77,7 +78,7 @@
 
 .react-map-active {
   grid-column-start: 1;
-  grid-column-end: 3;
+  grid-column-end: 4;
   transform: translate(0%, -15%) scale(1.5);
   transition: transform .5s;
   transform-origin: center;
@@ -87,7 +88,7 @@
 .react-image {
   object-fit: cover;
   height: 60%;
-  width:90%;
+  width:100%;
   border: limegreen 0.2rem solid;
   border-radius: 0.5rem;
   padding: 1rem;
@@ -111,11 +112,9 @@
 .react-text-box {
   object-fit: contain;
   height: 60%;
-  width:90%;
+  width:100%;
   padding: 1rem;
   z-index: 1;
-  grid-column-start: 1;
-  grid-column-end: 3;
 }
 
 .react-category-sub {

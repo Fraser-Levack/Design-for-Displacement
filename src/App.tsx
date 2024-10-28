@@ -25,41 +25,41 @@ function App() {
 
         <WorldMap fill="#333" stroke="#000" isActive={isActive}/>
 
-        <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <TextBox direction="left" span={[1, 3]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
         nisi ut aliquip ex ea commodo consequat.
         </TextBox>
 
-        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
+        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" span={[3, 4]} />
 
-        <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <Image direction="left" source="image_placeholder_wire.jpg" altText="placeholder" span={[1, 2]}/>
+
+        <TextBox direction="right" span={[2, 4]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
         </TextBox>
-
-        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
 
         <BigImage direction="left" source="bigimage_placeholder.jpg" altText="bigplaceholder" />
 
         <CategorySubheading>SubHeading</CategorySubheading>
 
-        <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <TextBox direction="left" span={[1, 3]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
         </TextBox>
 
-        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
+        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" span={[3, 4]}/>
 
-        <TextBox direction="left">Lorem ipsum dolor sit amet, consectetur adipiscing elit,
+        <Image direction="left" source="image_placeholder_wire.jpg" altText="placeholder" span={[1, 2]}/>
+
+        <TextBox direction="right" span={[2, 4]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
             sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
             Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
             nisi ut aliquip ex ea commodo consequat.
         </TextBox>
-
-        <Image direction="right" source="image_placeholder_wire.jpg" altText="placeholder" />
 
     </div>
   </div>

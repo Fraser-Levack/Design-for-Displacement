@@ -6,17 +6,20 @@ interface Props {
     source: string;
     altText: string;
     direction: 'left' | 'right';
+    span: [number, number];
 }
 
 
-function Image ({ source, altText, direction }: Props) {
-    const [ref, isIntersecting] = useIntersectionObserver<HTMLImageElement>({ threshold: 0.1 });
+function Image ({ source, altText, direction, span }: Props) {
+    const [ref, isIntersecting] = useIntersectionObserver<HTMLImageElement>({ threshold: 0.05 });
 
     return (
         <>
             <img ref={ref} className={`react-image reveal-${direction} ${isIntersecting ? `reveal-${direction}-active` : ''}`}
-                 src = {source}
-                 alt = {altText}/>
+                style={{gridColumnStart: span[0], gridColumnEnd: span[1]}}
+                src = {source}
+                alt = {altText}
+            />
         </>
     )
 }
