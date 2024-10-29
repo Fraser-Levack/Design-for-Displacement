@@ -19,11 +19,11 @@ function App() {
     <MainHeading isActive={isActive}>Design for Displacement III</MainHeading>
     <MainHeading isSubheading={true} isActive={isActive}>A project by Dundee Uni</MainHeading>
     </div>
-
-    <div className="main-content">
-
+    <div className="page-content">
+    <div className="map-content">
         <WorldMap fill="#333" stroke="#000" isActive={isActive}/>
-
+    </div>
+    <div className="main-content">
         <TextBox direction="left" span={[1, 3]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
         sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.
         Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris
@@ -60,6 +60,7 @@ function App() {
             nisi ut aliquip ex ea commodo consequat.
         </TextBox>
 
+    </div>
     </div>
   </div>
   );
