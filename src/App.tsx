@@ -1,6 +1,7 @@
 import { useState } from 'react';
 import MainHeading from './components/MainHeading.tsx';
-import WorldMap from "./components/WorldMap.tsx";
+// import WorldMap from "./components/WorldMap.tsx";
+import WorldGlobe from "./components/WorldGlobe.tsx";
 import Image from "./components/Image.tsx";
 import TextBox from "./components/TextBox.tsx";
 import CategorySubheading from "./components/CategorySubheading.tsx";
@@ -20,8 +21,8 @@ function App() {
     <MainHeading isSubheading={true} isActive={isActive}>A project by Dundee Uni</MainHeading>
     </div>
     <div className="page-content">
-    <div className="map-content">
-        <WorldMap fill="#333" stroke="#000" isActive={isActive}/>
+    <div className="map-content react-map">
+        <WorldGlobe />
     </div>
     <div className="main-content">
         <TextBox direction="left" span={[1, 3]}>Lorem ipsum dolor sit amet, consectetur adipiscing elit,
@@ -61,7 +62,10 @@ function App() {
         </TextBox>
 
     </div>
+
+
     </div>
+
   </div>
   );
 }
