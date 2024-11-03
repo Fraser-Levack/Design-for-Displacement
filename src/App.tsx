@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import MainHeading from './components/MainHeading.tsx';
-// import WorldMap from "./components/WorldMap.tsx";
 import WorldGlobe from "./components/WorldGlobe.tsx";
 import Image from "./components/Image.tsx";
 import TextBox from "./components/TextBox.tsx";
