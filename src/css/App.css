@@ -1,9 +1,8 @@
 #root {
   margin: 0 0;
   padding-top: 0;
-  padding-left: 5rem;
-  padding-right: 5rem;
   text-align: center;
+  align-content: center;
   background-color: var(--background-color);
   color: var(--text-color);
 }
@@ -55,7 +54,6 @@
 .page-content {
   display: flex;
   flex-direction: column;
-  transform: translate(0%, -10%);
 }
 
 .map-content{

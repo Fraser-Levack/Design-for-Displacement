@@ -4,7 +4,11 @@ import * as THREE from 'three';
 import * as topojson from 'topojson-client';
 import { Feature, FeatureCollection, Geometry } from 'geojson';
 
-const WorldGlobe = () => {
+interface props {
+    color: string;
+}
+
+const WorldGlobe = ({color}: props) => {
     const [dimensions, setDimensions] = useState({ width: 0, height: 0 });
     const [landPolygons, setLandPolygons] = useState<Feature<Geometry>[]>([]);
     const containerRef = useRef<HTMLDivElement>(null);
@@ -52,7 +56,7 @@ const WorldGlobe = () => {
     }, []);
 
     const polygonsMaterial = new THREE.MeshLambertMaterial({
-        color: 'darkslategrey',
+        color: color,
         side: THREE.DoubleSide,
     });
 
