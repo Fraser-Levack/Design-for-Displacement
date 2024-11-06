@@ -4,6 +4,8 @@
   padding-left: 5rem;
   padding-right: 5rem;
   text-align: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
 }
 
 .top-heading {
@@ -19,8 +21,6 @@
   font-weight: 700;
   width: fit-content;
   margin: 0 0 1rem;
-  border: aqua 0.2rem solid;
-  border-radius: 0.5rem;
   left: 50%;
   transform: translateX(-50%);
 }
@@ -35,8 +35,6 @@
   font-weight: 500;
   width: fit-content;
   margin: 0 0 2rem;
-  border: aqua 0.2rem solid;
-  border-radius: 0.5rem;
   transform: translateY(-80%);
   transition: all 0.5s ease;
 }
@@ -45,16 +43,11 @@
   font-size: 1.5rem;
   font-weight: 400;
   margin: 0 0 1rem;
-  border: hotpink 0.2rem solid;
-  border-radius: 0.5rem;
 
   opacity: 1;
 }
 
 .subheading-active {
-
-  border: hotpink 0.05rem solid;
-  border-radius: 0.5rem;
   opacity: 0;
   transition: all 0.5s ease;
 }
@@ -90,8 +83,6 @@
 
   position: relative;
   object-fit: contain;
-  border: 0.2rem solid #FFF;
-  border-radius: 0.5rem;
 
   width: 100%;
   height: 100%;
@@ -102,8 +93,6 @@
   object-fit: cover;
   height: 60%;
   width:100%;
-  border: limegreen 0.2rem solid;
-  border-radius: 0.5rem;
   padding: 1rem;
 
   z-index: 1;
@@ -116,8 +105,6 @@
   object-fit: contain;
   width:100%;
   height: 75%;
-  border: limegreen 0.2rem solid;
-  border-radius: 0.5rem;
   padding: 0.5rem;
   z-index: 1;
 }
@@ -137,8 +124,6 @@
   font-size: 1.5rem;
   font-weight: 400;
   margin: 0 0 1rem;
-  border: aqua 0.2rem solid;
-  border-radius: 0.5rem;
 
   padding: 0.2rem;
   z-index: 1;
@@ -151,5 +136,5 @@
   margin: 0 0;
   width: 50%;
   padding-top: 0.1rem;
-  border-bottom: 0.2rem solid rgba(255, 255, 255, 0.87);
+  border-bottom: 0.2rem solid var(--text-color);
 }
