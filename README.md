@@ -1,4 +1,4 @@
-# React + TypeScript + Vite Project for Design for Displacement
+# Project for Design for Displacement
 
 
 ## About the project website.
