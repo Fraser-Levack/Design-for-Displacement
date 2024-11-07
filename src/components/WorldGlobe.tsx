@@ -48,6 +48,17 @@ const WorldGlobe = ({color}: props) => {
                 const controls = globeRef.current.controls();
                 controls.autoRotate = true;
                 controls.autoRotateSpeed = 1; // Adjust speed as needed
+
+
+                // Set zoom level
+                controls.minDistance = 250; // Minimum zoom distance
+                controls.maxDistance = 1000; // Maximum zoom distance
+                controls.update();
+
+                // Set initial zoom level by adjusting camera position
+                const camera = globeRef.current.camera();
+                camera.position.z = 250; // Adjust this value to zoom in or out
+
                 controls.enabled = false; // Disable user controls
             }
         };
@@ -61,7 +72,7 @@ const WorldGlobe = ({color}: props) => {
     });
 
     return (
-        <div ref={containerRef} style={{ width: '100%', height: '100%', minHeight: '50rem' }}>
+        <div ref={containerRef} style={{ width: '100%', height: '100%', minHeight: '25rem' }}>
             <Globe
                 ref={globeRef}
                 backgroundColor="rgba(0,0,0,0)"  // Transparent background
