@@ -1,0 +1,55 @@
+.sticky-bar {
+    position: sticky;
+    top: 5rem;
+    padding-top:1rem;
+    padding-inline: 2rem 3rem;
+    z-index: 5;
+}
+
+.sticky-top li {
+    font-size: 1.25em;
+    margin-right: 2.7rem;
+
+    min-width: 5rem;
+    max-height: 2rem;
+
+    transition: all 0.5s ease;
+    border-top: 2px solid var(--background-color);
+    border-left: 2px solid var(--background-color);
+    border-right: 2px solid var(--background-color);
+    border-top-left-radius: 0.5rem;
+    border-top-right-radius: 0.5rem;
+}
+
+.sticky-top li:hover {
+    color: var(--background-color);
+    background-color: var(--text-color);
+    border-top: 2px solid var(--secondary-color);
+    border-left: 2px solid var(--secondary-color);
+    border-right: 2px solid var(--secondary-color);
+}
+
+.sticky-bottom li {
+    font-size: 0.70em;
+    margin-right: 3rem;
+    min-width: 5rem;
+}
+
+.sticky-top ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+
+    border-bottom: 3px solid var(--text-color);
+
+}
+
+.sticky-bottom ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
+}
+
+ul {
+    list-style-type: none;
+}
