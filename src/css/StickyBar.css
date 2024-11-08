@@ -1,7 +1,8 @@
+/* Existing styles */
 .sticky-bar {
     position: sticky;
     top: 5rem;
-    padding-top:1rem;
+    padding-top: 1rem;
     padding-inline: 2rem 3rem;
     z-index: 5;
 }
@@ -9,45 +10,75 @@
 .sticky-top li {
     font-size: 1.25em;
     margin-right: 2.7rem;
-
     min-width: 5rem;
     max-height: 2rem;
+    position: relative; /* For ::after positioning */
+    transition: color 0.5s ease;
+    z-index: 2; /* Keeps link text above the card */
+}
 
+.sticky-top li::after {
+    content: "";
+    position: absolute;
+    bottom: 0; /* Position it just below the link */
+    left: 0;
+    right: 0;
+    height: 100%; /* Same height as the link */
+    background-color: var(--text-color); /* Background color for card */
+    border-top: 2px solid var(--text-color);
+    border-left: 2px solid var(--text-color);
+    border-right: 2px solid var(--text-color);
+    border-radius: 0.5rem 0.5rem 0 0;
+    transform: translateY(100%); /* Start fully below */
     transition: all 0.5s ease;
-    border-top: 2px solid var(--background-color);
-    border-left: 2px solid var(--background-color);
-    border-right: 2px solid var(--background-color);
-    border-top-left-radius: 0.5rem;
-    border-top-right-radius: 0.5rem;
+    z-index: -1; /* Ensures card stays beneath everything */
 }
 
 .sticky-top li:hover {
     color: var(--background-color);
-    background-color: var(--text-color);
+    /* Adjust border colors for visual feedback */
+}
+
+.sticky-top li:hover::after {
+    transform: translateY(0); /* Moves the card up to be behind the link */
+    /* Keep z-index -1 to ensure it remains beneath the bottom section */
     border-top: 2px solid var(--secondary-color);
     border-left: 2px solid var(--secondary-color);
     border-right: 2px solid var(--secondary-color);
 }
 
 .sticky-bottom li {
+    color: var(--secondary-color);
     font-size: 0.70em;
     margin-right: 3rem;
     min-width: 5rem;
+
+    transition: color 0.2s ease;
+}
+
+.sticky-bottom li:hover {
+    color: var(--text-color);
+
+}
+
+.sticky-top ul, .sticky-bottom ul {
+    display: flex;
+    flex-direction: row;
+    justify-content: left;
 }
 
 .sticky-top ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
-
+    margin-bottom:0;
     border-bottom: 3px solid var(--text-color);
-
+    z-index: 5; /* Keeps the top above the sticky-bottom by default */
 }
 
 .sticky-bottom ul {
-    display: flex;
-    flex-direction: row;
-    justify-content: left;
+    position: relative;
+    margin-top:0;
+    padding-top: 1rem;
+    background-color: var(--background-color);
+    z-index: 6; /* Higher z-index to keep ::after hidden below */
 }
 
 ul {
