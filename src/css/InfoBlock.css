@@ -1,0 +1,31 @@
+.info-block{
+    display:flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+
+    margin: 4rem;
+}
+
+.info-text-section {
+    text-align: left;
+    width: 50%;
+}
+
+.info-text-section h2 {
+    /* font-family: "Times New Roman", Times, serif; */
+    font-size: 1.5em;
+    font-weight: bold;
+}
+
+.info-text-section p {
+    font-size: 0.7rem;
+}
+
+.info-image-section {
+    width: 40%;
+    height: 20rem;
+    background-color: var(--secondary-color);
+
+    margin: 5rem 2rem 2rem 2rem;
+}
