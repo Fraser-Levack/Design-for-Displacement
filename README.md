@@ -11,7 +11,7 @@ and provide a platform for students to submit their work and for the public to v
 
 ## Link to the live site
 
-The site is currently deployed on GitHub Pages and can be accessed [here](https://fraser-levack.github.io/Design-for-Displacement/).
+The site is currently deployed on GitHub Pages and can be accessed [here](https://designfordisplacement.info).
 <br>
 <br>
 Please note that the site is still under development and some features may not be fully functional.
