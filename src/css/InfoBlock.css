@@ -9,11 +9,16 @@
 
 .info-text-section {
     text-align: left;
-    width: 50%;
+
+}
+
+.info-text {
+    display: grid;
+    gap: 1rem;
 }
 
 .info-text-section h2 {
-    /* font-family: "Times New Roman", Times, serif; */
+    grid-column: span 2;
     font-size: 1.5em;
     font-weight: bold;
 }
@@ -23,7 +28,6 @@
 }
 
 .info-image-section {
-    width: 40%;
     height: 20rem;
     background-color: var(--secondary-color);
 
