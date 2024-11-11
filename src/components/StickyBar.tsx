@@ -12,11 +12,16 @@ function StickyBar({ setActiveTab, activeTab }: Props) {
             <div className={"sticky-top"}>
             <ul>
                 <li onClick={() => setActiveTab('Macro')}
-                    className={`tab ${activeTab === 'Macro' ? 'active' : ''}`}> Macro </li>
+                    className={`tab ${activeTab === 'Macro' ? 'active' : ''}`}>
+                    <div className={"text"}> Macro </div></li>
                 <li onClick={() => setActiveTab('Meso')}
-                    className={`tab ${activeTab === 'Meso' ? 'active' : ''}`}> Meso </li>
+                    className={`tab ${activeTab === 'Meso' ? 'active' : ''}`}>
+                    <div className={"text"}> Meso</div>
+                </li>
                 <li onClick={() => setActiveTab('Micro')}
-                    className={`tab ${activeTab === 'Micro' ? 'active' : ''}`}> Micro </li>
+                    className={`tab ${activeTab === 'Micro' ? 'active' : ''}`}>
+                    <div className={"text"}> Micro</div>
+                </li>
             </ul>
             </div>
             <div className={"sticky-bottom"}>

@@ -12,9 +12,16 @@
     margin-right: 2.7rem;
     min-width: 5rem;
     max-height: 2rem;
-    position: relative; /* For ::after positioning */
+
+    align-content: center;
+    position: relative;
+    z-index: 5;
+}
+
+.sticky-top li .text {
+    position: relative;
     transition: color 0.5s ease;
-    z-index: 2; /* Keeps link text above the card */
+    z-index: 6;
 }
 
 .sticky-top li::after {
@@ -31,11 +38,11 @@
     border-radius: 0.5rem 0.5rem 0 0;
     transform: translateY(100%); /* Start fully below */
     transition: all 0.5s ease;
-    z-index: -1; /* Ensures card stays beneath everything */
+    z-index: 5;
 }
 
-.sticky-top li:hover,
-.sticky-top li.active{
+.sticky-top li:hover .text,
+.sticky-top li.active .text{
     color: var(--background-color);
     /* Adjust border colors for visual feedback */
 }
@@ -71,8 +78,11 @@
 
 .sticky-top ul {
     margin-bottom:0;
+
+    background-color: var(--background-color);
+
     border-bottom: 2px solid var(--text-color);
-    z-index: 5; /* Keeps the top above the sticky-bottom by default */
+    z-index: 4; /* Keeps the top above the sticky-bottom by default */
 }
 
 .sticky-bottom ul {
