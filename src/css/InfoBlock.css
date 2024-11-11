@@ -18,7 +18,6 @@
 }
 
 .info-text-section h2 {
-    grid-column: span 2;
     font-size: 1.5em;
     font-weight: bold;
 }
