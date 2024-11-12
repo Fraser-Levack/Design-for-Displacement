@@ -2,10 +2,15 @@ import { useState } from 'react';
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
 import '../css/SlideShow.css';
 
-const images = Array(10).fill(null); // Placeholder for images
+interface SlideShowProps {
+    folder: string;
+    numImages: number;
+}
 
-function SlideShow() {
+function SlideShow({ folder, numImages }: SlideShowProps) {
     const [startIndex, setStartIndex] = useState(0);
+
+    const images = Array.from({ length: numImages }, (_, index) => `${folder}/${index + 1}.png`);
 
     const handlePrev = () => {
         setStartIndex((prevIndex) => (prevIndex - 1 + images.length) % images.length);
@@ -18,19 +23,19 @@ function SlideShow() {
     const displayedImages = images.slice(startIndex, startIndex + 4);
 
     return (
-        <div className={"slideshow"}>
+        <div className="slideshow">
             <h2>Title</h2>
             <div className="slideshow-container">
                 <button onClick={handlePrev} className="arrow left-arrow">
-                    <FaChevronLeft/>
+                    <FaChevronLeft />
                 </button>
                 <div className="images-container">
-                    {displayedImages.map((_, index) => (
-                        <div key={index} className="image-placeholder"></div>
+                    {displayedImages.map((src, index) => (
+                        <img key={index} src={src} alt={`Slide ${index + 1}`} className="image-placeholder" />
                     ))}
                 </div>
                 <button onClick={handleNext} className="arrow right-arrow">
-                    <FaChevronRight/>
+                    <FaChevronRight />
                 </button>
             </div>
             <p>Lores ipsum huydt eriust duiunt uir.</p>

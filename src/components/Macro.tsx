@@ -18,7 +18,7 @@ function Macro () {
             </p>
         </InfoBlock>
 
-        <SlideShow />
+        <SlideShow folder={'sample_slideshow'} numImages={6}/>
     </div>
   );
 }
