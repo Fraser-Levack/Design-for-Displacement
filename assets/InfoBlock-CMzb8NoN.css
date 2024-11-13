@@ -1,1 +1,0 @@
-.info-block{display:flex;flex-direction:row;justify-content:space-between;align-items:center;margin:4rem}.info-text-section{text-align:left}.info-text{display:grid;gap:1rem}.info-text-section h2{grid-column:span 2;font-size:1.5em;font-weight:700}.info-text-section p{font-size:.7rem}.info-image-section{height:20rem;background-color:var(--secondary-color);margin:5rem 2rem 2rem}
