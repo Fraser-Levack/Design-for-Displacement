@@ -1,7 +1,5 @@
 import InfoBlock from "./InfoBlock.tsx";
 
-import SlideShow from "./SlideShow.tsx";
-
 function Macro () {
   return (
     <div className={'macro-content'}>
@@ -18,7 +16,6 @@ function Macro () {
             </p>
         </InfoBlock>
 
-        <SlideShow folder={'sample_slideshow'} numImages={6}/>
     </div>
   );
 }

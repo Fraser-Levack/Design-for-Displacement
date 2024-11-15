@@ -1,7 +1,8 @@
-import { useState, Suspense, lazy } from 'react';
+import { useState, Suspense, lazy} from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import NavBar from "./components/NavBar.tsx";
 import WorldGlobe from "./components/WorldGlobe.tsx";
+import WorldMap from "./components/WorldMap.tsx";
 
 import StickyBar from "./components/StickyBar.tsx";
 
@@ -27,6 +28,19 @@ function App() {
         }
     };
 
+    const renderTopContent = () => {
+        switch (activeTab) {
+            case 'Macro':
+                return <WorldGlobe color={'#bfbfbf'}/>;
+            case 'Meso':
+                return < WorldMap />;
+            case 'Micro':
+                return null;
+            default:
+                return null;
+        }
+    };
+
     return (
     <div className={"page-content"}>
     <div className={"main-heading"}>
@@ -34,7 +48,7 @@ function App() {
     </div>
     <div className="page-content">
     <div className="map-content">
-        <WorldGlobe color={'#bfbfbf'}/>
+        {renderTopContent()}
     </div>
     < StickyBar setActiveTab={setActiveTab} activeTab={activeTab}/>
 

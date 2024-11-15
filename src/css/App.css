@@ -17,6 +17,7 @@
   flex-shrink: 0;
   flex-basis: auto;
   margin-top:8rem;
+  height: 25rem;
 }
 
 .fade-enter {
