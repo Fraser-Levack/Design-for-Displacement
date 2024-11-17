@@ -3,6 +3,7 @@ import { CSSTransition, TransitionGroup } from 'react-transition-group';
 import NavBar from "./components/NavBar.tsx";
 import WorldGlobe from "./components/WorldGlobe.tsx";
 import WorldMap from "./components/WorldMap.tsx";
+import SwitchButton from "./components/SwitchButton.tsx";
 
 import StickyBar from "./components/StickyBar.tsx";
 
@@ -14,6 +15,7 @@ import './css/App.css';
 
 function App() {
     const [activeTab, setActiveTab] = useState("Macro");
+    const [mapSwitch, setMapSwitch] = useState(false);
 
     const renderContent = () => {
         switch (activeTab) {
@@ -31,9 +33,12 @@ function App() {
     const renderTopContent = () => {
         switch (activeTab) {
             case 'Macro':
-                return <WorldGlobe color={'#bfbfbf'}/>;
+                if (!mapSwitch) {
+                    return <WorldGlobe color={'#bfbfbf'}/>;
+                }
+                return <WorldMap />;
             case 'Meso':
-                return < WorldMap />;
+                return null;
             case 'Micro':
                 return null;
             default:
@@ -49,6 +54,7 @@ function App() {
     <div className="page-content">
     <div className="map-content">
         {renderTopContent()}
+        <SwitchButton setMapSwitch={setMapSwitch} mapSwitch={mapSwitch}/>
     </div>
     < StickyBar setActiveTab={setActiveTab} activeTab={activeTab}/>
 
