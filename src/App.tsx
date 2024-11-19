@@ -6,6 +6,7 @@ import WorldMap from "./components/WorldMap.tsx";
 import SwitchButton from "./components/SwitchButton.tsx";
 
 import StickyBar from "./components/StickyBar.tsx";
+import ScrollSpy from "./components/ScrollSpy.tsx";
 
 const Macro = lazy(() => import('./components/Macro.tsx'));
 const Meso = lazy(() => import('./components/Meso.tsx'));
@@ -16,6 +17,15 @@ import './css/App.css';
 function App() {
     const [activeTab, setActiveTab] = useState("Macro");
     const [mapSwitch, setMapSwitch] = useState(false);
+
+    const sections = [
+        'Introduction', 'Politics',
+        'Economics', 'Society',
+        'Physical Displacement',
+        'Health + Wellbeing',
+        'Built Environment'];
+
+    const [activeSection, setActiveSection] = useState(sections[0]);
 
     const renderContent = () => {
         switch (activeTab) {
@@ -56,7 +66,8 @@ function App() {
         {renderTopContent()}
         <SwitchButton setMapSwitch={setMapSwitch} mapSwitch={mapSwitch}/>
     </div>
-    < StickyBar setActiveTab={setActiveTab} activeTab={activeTab}/>
+    <ScrollSpy sections={sections} onActiveSectionChange={setActiveSection} />
+    < StickyBar setActiveTab={setActiveTab} activeTab={activeTab} sections={sections} activeSection={activeSection}/>
 
     <TransitionGroup>
         <CSSTransition

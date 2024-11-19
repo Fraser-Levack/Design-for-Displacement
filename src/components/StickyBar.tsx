@@ -4,9 +4,11 @@ import '../css/StickyBar.css';
 interface Props {
     setActiveTab: (tab: string) => void;
     activeTab: string;
+    sections: string[];
+    activeSection: string;
 }
 
-function StickyBar({ setActiveTab, activeTab }: Props) {
+function StickyBar({ setActiveTab, activeTab, sections, activeSection}: Props) {
     return (
         <div className={"sticky-bar"}>
             <div className={"sticky-top"}>
@@ -26,13 +28,12 @@ function StickyBar({ setActiveTab, activeTab }: Props) {
             </div>
             <div className={"sticky-bottom"}>
                 <ul>
-                    <li> Introduction </li>
-                    <li> Politics </li>
-                    <li> Economics </li>
-                    <li> Society </li>
-                    <li> Physical Displacement </li>
-                    <li> Health + Wellbeing </li>
-                    <li> Built Environment </li>
+                    {sections.map((section) => (
+                        <li key={section}
+                            className={`section ${activeSection === section ? 'active' : ''}`}>
+                            <div className={"text"}>{section}</div>
+                        </li>
+                    ))}
                 </ul>
             </div>
         </div>

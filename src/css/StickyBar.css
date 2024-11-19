@@ -5,6 +5,7 @@
     padding-top: 1.5rem;
     padding-inline: 2rem 3rem;
     z-index: 5;
+    background-color: var(--background-color);
 }
 
 .sticky-top li {
@@ -65,7 +66,8 @@
     transition: color 0.2s ease;
 }
 
-.sticky-bottom li:hover {
+.sticky-bottom li:hover,
+.sticky-bottom li.active {
     color: var(--text-color);
 
 }
