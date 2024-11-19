@@ -7,9 +7,10 @@ interface Props {
     title: string;
     span?: number[];
     columns?: number;
+    id?: string;
 }
 
-function InfoBlock({children, title, span, columns = 1}: Props) {
+function InfoBlock({children, title, span, columns = 1, id = ""}: Props) {
     const infoTextStyle = {
         display: 'grid',
         gridTemplateColumns: columns === 2 ? '1fr 1fr' : '1fr',
@@ -17,7 +18,7 @@ function InfoBlock({children, title, span, columns = 1}: Props) {
     };
 
     return (
-        <div className={"info-block"}>
+        <div className={"info-block"} id={id}>
 
             <div className={"info-text-section"} style={{width: span ? `${span[0]}%` : '50%'}}>
                 <h2>{title}</h2>

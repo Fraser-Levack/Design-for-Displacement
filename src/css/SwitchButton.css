@@ -14,7 +14,7 @@
     position: relative;
     content: "";
     height: 2rem;
-    width: 5rem;
+    width: 4rem;
     background-color: var(--secondary-color);
 }
 
@@ -26,11 +26,11 @@
     background-color: var(--text-color);
     border-radius: 0.9rem;
     margin: 0.1rem;
-    transition: all 1s ease;
+    transition: all .5s ease;
 }
 
 .switch-button .active {
-    transform: translateX(160%);
+    transform: translateX(110%);
 }
 
 .switch-text {
