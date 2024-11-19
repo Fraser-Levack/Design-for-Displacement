@@ -9,6 +9,17 @@ interface Props {
 }
 
 function StickyBar({ setActiveTab, activeTab, sections, activeSection}: Props) {
+
+    const handleTabClick = (sectionId: string) => {
+        const element = document.getElementById(sectionId);
+        if (element) {
+            const stickyBar = document.querySelector('.sticky-bar');
+            const yOffset = stickyBar ? -stickyBar.clientHeight: 0;
+            const y = element.getBoundingClientRect().top + window.scrollY + yOffset;
+            window.scrollTo({ top: y, behavior: 'smooth' });
+        }
+    };
+
     return (
         <div className={"sticky-bar"}>
             <div className={"sticky-top"}>
@@ -30,6 +41,7 @@ function StickyBar({ setActiveTab, activeTab, sections, activeSection}: Props) {
                 <ul>
                     {sections.map((section) => (
                         <li key={section}
+                            onClick={() => handleTabClick(section)}
                             className={`section ${activeSection === section ? 'active' : ''}`}>
                             <div className={"text"}>{section}</div>
                         </li>
