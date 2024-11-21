@@ -1,5 +1,4 @@
-# Project for Design for Displacement
-
+# Project for Design for Displacement.
 
 ## About the project website.
 This site is currently being developed to become a hub for the 5th year Dundee University Architecture course Design For Displacement.
