@@ -1,26 +1,19 @@
-import '../css/App.css';
-import '../css/MainAnimation.css';
-import useIntersectionObserver from '../useIntersectionObserver';
-
 interface Props {
     source: string;
-    altText: string;
-    direction: 'left' | 'right';
-    span: [number, number];
 }
 
 
-function Image ({ source, altText, direction, span }: Props) {
-    const [ref, isIntersecting] = useIntersectionObserver<HTMLImageElement>({ threshold: 0.05 });
+function Image ({ source }: Props) {
+    const altText = source.split("/").pop()?.split(".")[0] || "";
 
     return (
-        <>
-            <img ref={ref} className={`react-image reveal-${direction} ${isIntersecting ? `reveal-${direction}-active` : ''}`}
-                style={{gridColumnStart: span[0], gridColumnEnd: span[1]}}
+        <figure>
+            <img
                 src = {source}
                 alt = {altText}
             />
-        </>
+            <figcaption>{altText}</figcaption>
+        </figure>
     )
 }
 
