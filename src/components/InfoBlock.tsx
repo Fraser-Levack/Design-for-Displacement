@@ -1,5 +1,6 @@
 import "../css/App.css";
 import "../css/InfoBlock.css";
+import Image from "./Image.tsx";
 import React from "react";
 
 interface Props {
@@ -8,9 +9,10 @@ interface Props {
     span?: number[];
     columns?: number;
     id?: string;
+    image_src?: string;
 }
 
-function InfoBlock({children, title, span, columns = 1, id = ""}: Props) {
+function InfoBlock({children, title, span, columns = 1, id = "", image_src}: Props) {
     const infoTextStyle = {
         display: 'grid',
         gridTemplateColumns: columns === 2 ? '1fr 1fr' : '1fr',
@@ -28,7 +30,7 @@ function InfoBlock({children, title, span, columns = 1, id = ""}: Props) {
             </div>
 
             <div className={"info-image-section"} style={{width: span ? `${span[1]}%` : '40%'}}>
-
+                {image_src ? <Image source={image_src}/> : null}
             </div>
         </div>
     );

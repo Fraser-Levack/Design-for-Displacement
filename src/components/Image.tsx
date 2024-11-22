@@ -1,18 +1,25 @@
+import "../css/Image.css";
+
 interface Props {
     source: string;
+    figcaption?: boolean;
 }
 
 
-function Image ({ source }: Props) {
-    const altText = source.split("/").pop()?.split(".")[0] || "";
+function Image ({ source, figcaption=true }: Props) {
+    const altText = source.split("/").pop()?.split(".")[0]?.replace(/_/g, " ") || "";
+
+    const imageHeight = "20rem";
+    const imageStyle = { height: imageHeight };
 
     return (
         <figure>
             <img
                 src = {source}
                 alt = {altText}
+                style = {imageStyle}
             />
-            <figcaption>{altText}</figcaption>
+            {figcaption ? <figcaption>{altText}</figcaption> : null}
         </figure>
     )
 }

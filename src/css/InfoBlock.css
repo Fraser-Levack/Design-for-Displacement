@@ -1,7 +1,7 @@
 .info-block{
     display:flex;
     flex-direction: row;
-    justify-content: space-between;
+    justify-content: space-evenly;
     align-items: center;
 
     margin: 4rem;
@@ -27,8 +27,6 @@
 }
 
 .info-image-section {
-    height: 20rem;
-    background-color: var(--secondary-color);
-
     margin: 5rem 2rem 2rem 2rem;
+    align-self: flex-end;
 }
