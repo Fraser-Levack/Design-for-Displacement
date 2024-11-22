@@ -1,16 +1,14 @@
-.info-block{
-  display:flex;
+.info-block {
+  display: flex;
   flex-direction: row;
   justify-content: space-between;
   align-items: center;
-
   margin: 4rem;
 }
 
 .info-text-section {
   flex: 1;
   text-align: left;
-
 }
 
 .info-text {
@@ -31,5 +29,5 @@
   margin: 5rem 2rem 2rem 2rem;
   align-self: flex-end;
   display: flex;
-  justify-content: flex-end;
+  justify-content: flex-start;
 }
