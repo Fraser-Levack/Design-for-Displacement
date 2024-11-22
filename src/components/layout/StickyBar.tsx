@@ -1,5 +1,5 @@
-import '../css/App.css';
-import '../css/StickyBar.css';
+import '../../css/App.css';
+import '../../css/layout/StickyBar.css';
 
 interface Props {
     setActiveTab: (tab: string) => void;

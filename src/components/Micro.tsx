@@ -1,4 +1,4 @@
-import InfoBlock from "./InfoBlock.tsx";
+import InfoBlock from "./content/InfoBlock.tsx";
 
 function Micro () {
   return (

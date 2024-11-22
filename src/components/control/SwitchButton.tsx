@@ -1,4 +1,4 @@
-import "../css/SwitchButton.css";
+import "../../css/control/SwitchButton.css";
 
 interface Props {
   setMapSwitch: (tab: boolean) => void;

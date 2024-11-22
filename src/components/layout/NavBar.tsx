@@ -1,5 +1,5 @@
-import '../css/App.css';
-import '../css/NavBar.css';
+import '../../css/App.css';
+import '../../css/layout/NavBar.css';
 import logo from '/dfd.jpg';
 import { FaSearch } from 'react-icons/fa';
 

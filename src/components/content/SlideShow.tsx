@@ -1,5 +1,5 @@
 import { FaChevronLeft, FaChevronRight } from 'react-icons/fa';
-import '../css/SlideShow.css';
+import '../../css/content/SlideShow.css';
 
 function SlideShow() {
 

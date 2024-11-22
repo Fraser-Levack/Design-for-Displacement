@@ -1,6 +1,6 @@
 import {useEffect} from "react";
 import worldMap from '/maps/241101_WorldMap.webp';
-import '../css/WorldMap.css';
+import '../../css/content/WorldMap.css';
 
 function WorldMap() {
 

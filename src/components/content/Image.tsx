@@ -1,4 +1,4 @@
-import "../css/Image.css";
+import "../../css/content/Image.css";
 
 interface Props {
     source: string;

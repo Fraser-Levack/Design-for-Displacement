@@ -1,5 +1,6 @@
-import "../css/App.css";
-import "../css/InfoBlock.css";
+// basically info block but image on the left
+import "../../css/App.css";
+import "../../css/content/InfoBlockFlipped.css";
 import Image from "./Image.tsx";
 import React from "react";
 
@@ -12,7 +13,7 @@ interface Props {
     image_src?: string;
 }
 
-function InfoBlock({children, title, span, columns = 1, id = "", image_src}: Props) {
+function InfoBlockFlipped({children, title, span, columns = 1, id = "", image_src}: Props) {
     const infoTextStyle = {
         display: 'grid',
         gridTemplateColumns: columns === 2 ? '1fr 1fr' : '1fr',
@@ -22,18 +23,18 @@ function InfoBlock({children, title, span, columns = 1, id = "", image_src}: Pro
     return (
         <div className={"info-block"} id={id}>
 
+            <div className={"info-image-section"} style={{width: span ? `${span[1]}%` : '40%'}}>
+                {image_src ? <Image source={image_src}/> : null}
+            </div>
+
             <div className={"info-text-section"} style={{width: span ? `${span[0]}%` : '50%'}}>
                 <h2>{title}</h2>
                 <div className={"info-text"} style={infoTextStyle}>
                     {children}
                 </div>
             </div>
-
-            <div className={"info-image-section"} style={{width: span ? `${span[1]}%` : '40%'}}>
-                {image_src ? <Image source={image_src}/> : null}
-            </div>
         </div>
     );
 }
 
-export default InfoBlock;
+export default InfoBlockFlipped;

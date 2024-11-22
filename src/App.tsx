@@ -1,12 +1,12 @@
 import { useState, Suspense, lazy} from 'react';
 import { CSSTransition, TransitionGroup } from 'react-transition-group';
-import NavBar from "./components/NavBar.tsx";
-import WorldGlobe from "./components/WorldGlobe.tsx";
-import WorldMap from "./components/WorldMap.tsx";
-import SwitchButton from "./components/SwitchButton.tsx";
+import NavBar from "./components/layout/NavBar.tsx";
+import WorldGlobe from "./components/content/WorldGlobe.tsx";
+import WorldMap from "./components/content/WorldMap.tsx";
+import SwitchButton from "./components/control/SwitchButton.tsx";
 
-import StickyBar from "./components/StickyBar.tsx";
-import ScrollSpy from "./components/ScrollSpy.tsx";
+import StickyBar from "./components/layout/StickyBar.tsx";
+import ScrollSpy from "./components/control/ScrollSpy.tsx";
 
 const Macro = lazy(() => import('./components/Macro.tsx'));
 const Meso = lazy(() => import('./components/Meso.tsx'));
