@@ -19,7 +19,7 @@ function Image ({ source, figcaption=true }: Props) {
                 alt = {altText}
                 style = {imageStyle}
             />
-            {figcaption ? <figcaption>{altText}</figcaption> : null}
+            {figcaption ? <figcaption>Fig. {altText}</figcaption> : null}
         </figure>
     )
 }

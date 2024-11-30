@@ -1,6 +1,7 @@
 import InfoBlock from "./content/InfoBlock.tsx";
 import Image from "./content/Image.tsx";
 import QuoteBlock from "./content/QuoteBlock.tsx";
+import StatBlock from "./content/StatBlock.tsx";
 import GeneralSwitch from "./control/GeneralSwitch.tsx";
 
 function Macro () {
@@ -87,7 +88,17 @@ function Macro () {
             </p>
         </InfoBlock>
         
-        <GeneralSwitch state1={"help"} state2={"ahhhhh"} children1={<div>help</div>} children2={<div>ahhhh</div>} />
+        <StatBlock title={"Internal Displacement and IDPs in 2023"}
+                   stat1={<>
+                       <h1> 20.5m </h1>
+                       <p> Internal Displacements by Conflict Over the Duration of 2023<sup>14</sup></p></>}
+                   stat2={<>
+                       <h1> 26.4m </h1>
+                       <p>Internal Displacements by Disaster Over the Duration of 2023<sup>15</sup></p></>}
+                   stat3={<>
+                       <h1> +6% </h1>
+                       <p>Increase in Total IDPs in Comparison to 2022<sup>16</sup></p></>}
+        />
     </div>
   );
 }
