@@ -1,4 +1,5 @@
 import InfoBlock from "./content/InfoBlock.tsx";
+import FourBlock from "./content/FourBlock.tsx";
 import Image from "./content/Image.tsx";
 import QuoteBlock from "./content/QuoteBlock.tsx";
 import StatBlock from "./content/StatBlock.tsx";
@@ -99,6 +100,117 @@ function Macro () {
                        <h1> +6% </h1>
                        <p>Increase in Total IDPs in Comparison to 2022<sup>16</sup></p></>}
         />
+
+        <FourBlock>
+            <div>
+                <div className={"top"}>
+                    <ul>
+                        <li>
+                        <strong>The Americas</strong><br/><br/>
+                        </li>
+                        <li>16.2 million displacements</li>
+                        <li>9.9 million refugees</li>
+                        <li>6.3 million internally displaced<sup>7</sup></li>
+                    </ul>
+                </div>
+                <Image source={"macro/pd/PDMA 4 The Americas graphic. (Author's Own).webp"} size={"15rem"}/>
+                <p>
+                    Displacement in The Americas is primarily driven
+                    by socio-political instability, violence, and economic
+                    emergencies. In South America, over 7.7 million
+                    Venezuelans have fled economic collapse and political
+                    turmoil11, with Colombia, Peru, and Brazil hosting large
+                    numbers. In Central America and Mexico, high levels
+                    of violence, poverty, and climate-related disasters
+                    lead thousands to seek asylum in the United States
+                    and Canada. Internally, the United States and Canada
+                    also face periodic displacements due to disasters
+                    such as hurricanes and wildfires.
+                </p>
+            </div>
+            <div>
+                <div className={"top"}>
+                    <ul>
+                        <li>
+                            <strong>Europe</strong><br/><br/>
+                        </li>
+                        <li>13.4 million displacements</li>
+                        <li>7 million refugees</li>
+                        <li>6.4 million internally displaced<sup>8</sup></li>
+                    </ul>
+                </div>
+                <Image source={"macro/pd/PDMA 5 Europe graphic. (Author's Own).webp"} size={"15rem"}/>
+                <p>
+                    Europe’s largest displacement crisis is due to the
+                    ongoing conflict in Ukraine, where approximately 1/3
+                    of Ukrainians have been forced to flee their home12.
+                    Europe is also a primary destination for refugees from
+                    the Middle East and Africa. Countries like Germany,
+                    France, and Turkey host large refugee populations,
+                    creating ongoing social, economic, and political
+                    challenges across the continent. In addition to
+                    conflict-driven displacement, Europe faces periodical
+                    natural disasters such as severe flooding and wildfires,
+                    as well as rising sea levels becoming a threat to
+                    lowlying nations such as The Netherlands.
+                </p>
+            </div>
+            <div>
+                <div className={"top"}>
+                    <ul>
+                        <li>
+                            <strong>Africa</strong><br/><br/>
+                        </li>
+                        <li>43 million displacements</li>
+                        <li>10.4 millions refugees</li>
+                        <li>32.6 million internally displaced<sup>9</sup></li>
+                    </ul>
+                </div>
+                <Image source={"macro/pd/PDMA 6 Africa graphic. (Author's Own).webp"} size={"15rem"}/>
+                <p>
+                    Africa has some of the world’s highest displacement
+                    numbers. In East and Central Africa, countries like
+                    Sudan, Ethiopia, and the Democratic Republic of
+                    Congo have millions of internally displaced people due
+                    to armed conflicts. The Sahel region is experiencing
+                    increasing displacement as violence from militant
+                    groups and climate impacts drive people from their
+                    homes. Natural disasters exacerbate displacement
+                    across the continent, with severe droughts in the Horn
+                    of Africa increasing the risk of famine. Frequent flash
+                    flooding is also a problem, where countries like Nigeria
+                    and Mozambique have faced the repercussions of
+                    late.
+                </p>
+            </div>
+            <div>
+                <div className={"top"}>
+                    <ul>
+                        <li>
+                            <strong>Middle East, Asia, and Oceania</strong><br/><br/>
+                        </li>
+                        <li>44.4 million displacements</li>
+                        <li>22.6 million refugees</li>
+                        <li>23 million internally displaced<sup>10</sup></li>
+                    </ul>
+                </div>
+                <Image source={"macro/pd/PDMA 7 The Middle East, Asia, and Oceania graphic. (Author's Own).webp"} size={"15rem"}/>
+                <p>
+                    The Middle East has been a focal point of displacement
+                    due to several countries such as Palestine, Israel,
+                    and Syria in consistent conflict. Asia is significantly
+                    impacted by disaster and conflict displacement.
+                    The Rohingya crisis has resulted in almost 1 million
+                    refugees fleeing to Bangladesh from Myanmar13.
+                    Countries like the Philippines and Bangaldesh face
+                    high internal displacement due to natural disasters
+                    such as typhoons and cyclones. In Oceania, island
+                    nations such as Kiribati and Tuvalu face growing
+                    risks from rising sea levels, while Australia and New
+                    Zealand face the threat of wildfires.
+                </p>
+            </div>
+        </FourBlock>
     </div>
   );
 }

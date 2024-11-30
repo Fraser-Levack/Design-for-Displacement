@@ -1,0 +1,24 @@
+.four-block {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 4rem;
+  padding: 0 20px;
+}
+
+.four-block .top{
+  font-size: 0.7rem;
+  text-align: left;
+  width: fit-content;
+}
+
+.four-block figure {
+  height: 15.5rem;
+}
+
+.four-block p{
+  font-size: 0.7rem;
+  line-break: loose;
+  padding-top: 2rem;
+  margin: 1rem 2rem;
+  text-align: justify;
+}

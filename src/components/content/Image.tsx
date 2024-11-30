@@ -3,14 +3,14 @@ import "../../css/content/Image.css";
 interface Props {
     source: string;
     figcaption?: boolean;
+    size?: string;
 }
 
 
-function Image ({ source, figcaption=true }: Props) {
+function Image ({ source, figcaption=true , size = "30rem"}: Props) {
     const altText = source.split("/").pop()?.split(".")[0]?.replace(/_/g, " ") || "";
 
-    const imageHeight = "30rem";
-    const imageStyle = { height: imageHeight };
+    const imageStyle = { height: size };
 
     return (
         <figure>
