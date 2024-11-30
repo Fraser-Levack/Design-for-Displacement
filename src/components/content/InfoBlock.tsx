@@ -4,7 +4,7 @@ import React from "react";
 
 interface Props {
     children: React.ReactNode;
-    title: string;
+    title?: string;
     span?: number[];
     columns?: number;
     id?: string;
@@ -18,11 +18,13 @@ function InfoBlock({children, title, span, columns = 1, id = "", image_child}: P
         gap: '0'
     };
 
+    const titleContent = title && title.trim() !== "" ? <h2>{title}</h2> : null;
+
     return (
         <div className={"info-block"} id={id}>
 
             <div className={"info-text-section"} style={{width: span ? `${span[0]}%` : '50%'}}>
-                <h2>{title}</h2>
+                {titleContent}
                 <div className={"info-text"} style={infoTextStyle}>
                     {children}
                 </div>

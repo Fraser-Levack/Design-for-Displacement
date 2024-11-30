@@ -225,7 +225,7 @@ function Macro () {
         />
 
         <InfoBlock title={""} span={[40, 50]}
-                   image_child={<Image source={"macro/pd/PDMA 21 Total number of IDPs per year over the last decade. (Author's Own).webp"}/>}
+                   image_child={<Image source={"macro/pd/PDMA 21 Total number of IDPs per year over the last decade. (Author's Own).webp"} size={"20rem"}/>}
                    >
             <p>In recent years, the majority of forcibly displaced people have remained within their own country’s borders. The
                 number of IDPs continues to rise annually as more people are forced to flee their communities, contributing to the
@@ -238,7 +238,7 @@ function Macro () {
                 of people, adding to the millions already displaced by ongoing or previous conflicts. Additionally, prevalent natural
                 disasters destroyed numerous homes, resulting in even more people remaining displaced by year’s end. Without
                 lasting solutions, these numbers are likely to keep rising.</p>
-            <Image source={"macro/pd/PDMA 20 Types of internal displaced people graphic. (Author's Own).webp"} size={"13rem"}/>
+            <Image source={"macro/pd/PDMA 20 Types of internal displaced people graphic. (Author's Own).webp"} size={"10rem"}/>
         </InfoBlock>
     </div>
   );
