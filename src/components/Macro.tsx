@@ -1,4 +1,5 @@
 import InfoBlock from "./content/InfoBlock.tsx";
+import Image from "./content/Image.tsx";
 import QuoteBlock from "./content/QuoteBlock.tsx";
 import GeneralSwitch from "./control/GeneralSwitch.tsx";
 
@@ -6,7 +7,7 @@ function Macro () {
   return (
     <div className={'macro-content'}>
         <InfoBlock title={"What is Displacement?"} span={[40, 50]} id={"Physical Displacement"}
-                   image_src={"macro/pd/PDMA 1 Displacement figures 2000-2004. (Author's Own).webp"}>
+                   image_child={<Image source={"macro/pd/PDMA 1 Displacement figures 2000-2004. (Author's Own).webp"}/>}>
             <p>
                 Displacement is a term used to refer to the forced movement of people from their homes as a result of
                 circumstances
@@ -57,6 +58,35 @@ function Macro () {
             </p>
         </QuoteBlock>
 
+        <InfoBlock title={"Causes of Displacement"} span={[40, 50]}
+                   image_child={
+                       <GeneralSwitch state1={"Disaster"} state2={"Conflict"}
+                                      children1={<Image source={"macro/pd/PDMA 2 IDPs conflict breakdown 2023. (Author's Own).webp"}/>}
+                                      children2={<Image source={"macro/pd/PDMA 3 IDPs disaster breakdown 2023. (Author's Own).webp"}/>} />
+                   } >
+            <p>
+                Displacement occurs due to a variety of complex and interconnected factors that force individuals and communities
+                to leave their homes.
+            </p>
+            <p>
+                Conflict and violence are among the most significant drivers, with wars, civil unrest, and ethnic or political
+                persecution leading to widespread displacement. Political instability can create hostile environments whereby
+                people face a daily threat to their lives, safety, and freedom. Economic vulnerability and deep poverty can exacerbate
+                displacement by leaving people with limited resources and opportunity. Furthermore, the ever increasing gap
+                between the winners and losers of globalisation and capitalist regimes contributes to the displacement of people.
+            </p>
+            <p>
+                Environmental factors, such as natural disasters, are also becoming more frequent and severe due to climate
+                change. Floods, droughts, hurricanes, earthquakes, wildfires, rising sea levels, tsunamis, and landslides are some of
+                the major geophysical and extreme weather events which disrupt entire communities. These lead to the destruction
+                of homes and the devastation of livelihoods, making it impossible for people to stay in their places of origin.
+            </p>
+            <p>
+                These diverse causes of displacement reflect the intricacy of a global issue which affects millions, highlighting a
+                need for versatile approaches in understanding and addressing the realities of forced migration.
+            </p>
+        </InfoBlock>
+        
         <GeneralSwitch state1={"help"} state2={"ahhhhh"} children1={<div>help</div>} children2={<div>ahhhh</div>} />
     </div>
   );

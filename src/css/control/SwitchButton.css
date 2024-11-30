@@ -3,9 +3,12 @@
     z-index: 6;
     width: fit-content;
     left: 80%;
+    top: -10%;
     padding: 0.5rem;
     display: flex;
     flex-direction: column;
+
+    cursor: pointer;
 }
 
 .switch-button {

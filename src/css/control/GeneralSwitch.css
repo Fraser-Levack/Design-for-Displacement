@@ -1,6 +1,7 @@
 .switch {
   border-radius: 1rem;
   position: relative;
+  margin-bottom: -5rem;
   content: "";
   height: auto;
   width: fit-content;
