@@ -7,18 +7,23 @@ interface Props {
     children2: React.ReactNode;
     state1: string;
     state2: string;
+    right?: boolean;
 }
 
-function GeneralSwitch({children1, children2, state1, state2}: Props) {
+function GeneralSwitch({children1, children2, state1, state2, right}: Props) {
     const [state, setState] = useState(state1);
 
     function switchState() {
         setState(state === state1 ? state2 : state1);
     }
 
+    const rightSwitchStyle = {
+        left : "80%"
+    }
+
     return (
         <div>
-            <div className={'switch'} onClick={switchState}>
+            <div className={'switch'} onClick={switchState} style={right ? rightSwitchStyle : {}}>
                 <div className={`state1 ${state === state1 ? 'active' : ''}`}>{state1}</div>
                 <div className={`state1 ${state === state2 ? 'active' : ''}`}>{state2}</div>
             </div>

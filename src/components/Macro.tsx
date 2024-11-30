@@ -60,9 +60,9 @@ function Macro () {
 
         <InfoBlock title={"Causes of Displacement"} span={[40, 50]}
                    image_child={
-                       <GeneralSwitch state1={"Disaster"} state2={"Conflict"}
-                                      children1={<Image source={"macro/pd/PDMA 2 IDPs conflict breakdown 2023. (Author's Own).webp"}/>}
-                                      children2={<Image source={"macro/pd/PDMA 3 IDPs disaster breakdown 2023. (Author's Own).webp"}/>} />
+                       <GeneralSwitch state1={"Disaster"} state2={"Conflict"} right={true}
+                                      children1={<Image source={"macro/pd/PDMA 3 IDPs disaster breakdown 2023. (Author's Own).webp"}/>}
+                                      children2={<Image source={"macro/pd/PDMA 2 IDPs conflict breakdown 2023. (Author's Own).webp"}/>} />
                    } >
             <p>
                 Displacement occurs due to a variety of complex and interconnected factors that force individuals and communities
