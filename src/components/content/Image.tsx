@@ -9,7 +9,7 @@ interface Props {
 function Image ({ source, figcaption=true }: Props) {
     const altText = source.split("/").pop()?.split(".")[0]?.replace(/_/g, " ") || "";
 
-    const imageHeight = "20rem";
+    const imageHeight = "30rem";
     const imageStyle = { height: imageHeight };
 
     return (

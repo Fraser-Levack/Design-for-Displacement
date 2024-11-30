@@ -16,7 +16,7 @@ function InfoBlock({children, title, span, columns = 1, id = "", image_src}: Pro
     const infoTextStyle = {
         display: 'grid',
         gridTemplateColumns: columns === 2 ? '1fr 1fr' : '1fr',
-        gap: '1rem'
+        gap: '0'
     };
 
     return (
