@@ -1,5 +1,6 @@
 import InfoBlock from "./content/InfoBlock.tsx";
 import QuoteBlock from "./content/QuoteBlock.tsx";
+import GeneralSwitch from "./control/GeneralSwitch.tsx";
 
 function Macro () {
   return (
@@ -55,6 +56,8 @@ function Macro () {
                 forcibly displaced,<strong> nearly double </strong>the one in 125 people a decade ago.<sub>3</sub>
             </p>
         </QuoteBlock>
+
+        <GeneralSwitch state1={"help"} state2={"ahhhhh"} children1={<div>help</div>} children2={<div>ahhhh</div>} />
     </div>
   );
 }
