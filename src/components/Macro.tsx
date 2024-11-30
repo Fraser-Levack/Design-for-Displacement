@@ -92,7 +92,7 @@ function Macro () {
         <StatBlock title={"Internal Displacement and IDPs in 2023"}
                    stat1={<>
                        <h1> 20.5m </h1>
-                       <p> Internal Displacements by Conflict Over the Duration of 2023<sup>14</sup></p></>}
+                       <p>Internal Displacements by Conflict Over the Duration of 2023<sup>14</sup></p></>}
                    stat2={<>
                        <h1> 26.4m </h1>
                        <p>Internal Displacements by Disaster Over the Duration of 2023<sup>15</sup></p></>}
@@ -211,6 +211,35 @@ function Macro () {
                 </p>
             </div>
         </FourBlock>
+        
+        <StatBlock title={"Internal Displacement and IDPs in 2023"}
+                   stat1={<>
+                       <h1> 20.5m </h1>
+                       <p>Internal Displacements by Conflict Over the Duration of 2023<sup>14</sup></p></>}
+                   stat2={<>
+                       <h1> 26.4m </h1>
+                       <p>Internal Displacements by Disaster Over the Duration of 2023<sup>15</sup></p></>}
+                   stat3={<>
+                       <h1> +6% </h1>
+                       <p>Increase in Total IDPs in Comparison to 2022<sup>16</sup></p></>}
+        />
+
+        <InfoBlock title={""} span={[40, 50]}
+                   image_child={<Image source={"macro/pd/PDMA 21 Total number of IDPs per year over the last decade. (Author's Own).webp"}/>}
+                   >
+            <p>In recent years, the majority of forcibly displaced people have remained within their own country’s borders. The
+                number of IDPs continues to rise annually as more people are forced to flee their communities, contributing to the
+                growing population of those who have been displaced for years or even decades without finding a lasting solution.
+                At the end of 2023, and across 116 countries, there was 76 million IDPs.<sup>17</sup></p>
+            <p>Between 2014 and 2018, the number of IDPs globally increased by almost 10%. However, between 2018 and the
+                end of 2023, this percentage drastically increased to 83%. Overall, between 2014 and 2023 the number of IDPs has
+                increased by a staggering 101%.<sup>18</sup></p>
+            <p>Throughout 2023, new escalations of conflict in places like Ukraine, Sudan, and Palestine forcibly displaced millions
+                of people, adding to the millions already displaced by ongoing or previous conflicts. Additionally, prevalent natural
+                disasters destroyed numerous homes, resulting in even more people remaining displaced by year’s end. Without
+                lasting solutions, these numbers are likely to keep rising.</p>
+            <Image source={"macro/pd/PDMA 20 Types of internal displaced people graphic. (Author's Own).webp"} size={"13rem"}/>
+        </InfoBlock>
     </div>
   );
 }
