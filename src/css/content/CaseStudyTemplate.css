@@ -1,0 +1,21 @@
+.case-study-template {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-evenly;
+  padding: 0 0;
+
+  background-color: var(--text-color);
+}
+
+.case-study-template .arrow-left, .case-study-template .arrow-right {
+  font-size: 2rem;
+  color: var(--background-color);
+  cursor: pointer;
+  width: min-content;
+}
+
+.case-study-template .case-study-content {
+  width: 90%;
+  color: var(--background-color);
+}

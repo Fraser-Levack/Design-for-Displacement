@@ -11,8 +11,9 @@ function NavBar() {
                 <a href="#unit-overview">Unit Overview</a>
                 <a href="#references">References</a>
                 <a href="#contact">Contact</a>
+                <FaSearch className="navbar-search-icon" />
             </div>
-            <FaSearch className="navbar-search-icon" />
+
         </div>
     );
 }

@@ -5,6 +5,8 @@ import QuoteBlock from "./content/QuoteBlock.tsx";
 import StatBlock from "./content/StatBlock.tsx";
 import GeneralSwitch from "./control/GeneralSwitch.tsx";
 
+import CongoCaseStudy from "./content/CongoCaseStudy.tsx";
+
 function Macro () {
   return (
       <div className={'macro-content'}>
@@ -370,6 +372,8 @@ function Macro () {
                   displacement flows often impact bordering nations.
               </p>
           </InfoBlock>
+
+          <CongoCaseStudy/>
 
           <InfoBlock title={"Disaster Internal Displacements 2023"} span={[30, 60]}
                      image_child={<Image
