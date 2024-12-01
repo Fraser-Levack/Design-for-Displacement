@@ -15,7 +15,6 @@ function ScrollSpy({ sections, onActiveSectionChange }: Props) {
                 const element = document.getElementById(section);
                 if (element && element.offsetTop <= scrollPosition && currentSection !== section) {
                     currentSection = section;
-                    console.log(currentSection);
                 }
             });
 

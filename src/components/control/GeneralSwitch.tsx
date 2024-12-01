@@ -21,9 +21,13 @@ function GeneralSwitch({children1, children2, state1, state2, right}: Props) {
         left : "80%"
     }
 
+    const leftSwitchStyle = {
+        left : "10%",
+    }
+
     return (
         <div>
-            <div className={'switch'} onClick={switchState} style={right ? rightSwitchStyle : {}}>
+            <div className={'switch'} onClick={switchState} style={right ? rightSwitchStyle : leftSwitchStyle}>
                 <div className={`state1 ${state === state1 ? 'active' : ''}`}>{state1}</div>
                 <div className={`state1 ${state === state2 ? 'active' : ''}`}>{state2}</div>
             </div>

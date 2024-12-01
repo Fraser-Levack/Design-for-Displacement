@@ -240,6 +240,57 @@ function Macro () {
                 lasting solutions, these numbers are likely to keep rising.</p>
             <Image source={"macro/pd/PDMA 20 Types of internal displaced people graphic. (Author's Own).webp"} size={"10rem"}/>
         </InfoBlock>
+        
+        <GeneralSwitch
+
+            children1={
+                <InfoBlock title={"Disaster IDPs 2023"} span={[30, 60]}
+                           image_child={<Image source={"macro/pd/PDMA 24 Global IDPs by disaster map 2023. (Author's Own).webp"}/>}
+                           flip={true}>
+                    <p>
+                        Disaster displacement occurred in 148 countries in 2023<sup>20</sup>. Geophysical events
+                        such as earthquakes and volcanic eruptions led to as many displacements
+                        in 2023 as they had in the previous seven years. In 2022, weather induced
+                        displacement figures recorded their highest figure, but in 2023 this figure
+                        dropped, influenced by the settling of the La Nina period.
+                    </p>
+                    <p>
+                        Contrarily, floods and storms were responsible for the most displacements
+                        over the course of the year. Additionally, wildfires and droughts have increasingly entered the frame. Disasters related to weather aren’t always the direct
+                        result of climate change, but the recent environmental shift is increasing the
+                        frequency and intensity of them. This simultaneously poses greater threat to
+                        susceptible communities and makes the need to combat underlying drivers
+                        more necessary.
+                    </p>
+                    <Image source={"macro/pd/PDMA 25 Internal displacement breakdown 2014-2023. (Author's Own).webp"} size={"15rem"}/>
+                </InfoBlock>
+            }
+
+            children2={
+            <InfoBlock title={"Conflict IDPs 2023"} span={[30, 60]}
+                       image_child={<Image source={"macro/pd/PDMA 22 Global IDPs by conflict map 2023. (Author's Own).webp"}/>}
+                       flip={true}>
+                <p>
+                    The global number of internally displaced people due to conflict continues to
+                    rise, reaching a record high of 68.3 million in 2023<sup>19</sup>. The highest number of
+                    internal displacements related to conflict spiked in 2022 but remained high
+                    in 2023.
+                </p>
+                <p>
+                    However, yearly figures can often be unrepresentative as they only capture
+                    a portion of the issue. Most conflicts persist over long periods of time and
+                    even when conflict subsides or are resolved the damaging effects prolong.
+                    Whether this is physical infrastructural damage or political fragility, these
+                    consequences of previous acts can leave people displaced for years to come.
+                    The reasons for people moving often varies vastly with conflict being an ever
+                    changing scenario. It can result in people to move more than once in their
+                    search for safety.
+                </p>
+                <Image source={"macro/pd/PDMA 23 Number of internal displacements from conflict 2014-2023. (Author's Own).webp"} size={"15rem"}/>
+            </InfoBlock>
+            }
+
+            state1={"Disater"} state2={"Conflict"} />
     </div>
   );
 }
