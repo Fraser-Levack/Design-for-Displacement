@@ -21,9 +21,21 @@
   margin: 0;
 }
 
+.stats .stat-four {
+  width:25%;
+  text-align: center;
+  margin: 0;
+}
+
 .stats .stat:nth-child(2) {
   border-left: 4px solid var(--text-color);
   border-right: 4px solid var(--text-color);
+}
+
+.stats .stat-four h1{
+  font-size: 5rem;
+  font-weight: bolder;
+  margin: 0;
 }
 
 .stats .stat h1 {
@@ -37,4 +49,5 @@
   font-weight: bolder;
   margin: 0;
 }
+
 

@@ -10,7 +10,8 @@
 
 .quote-block .quote-text {
   font-size: 2rem;
-  font-weight: 400;
+  font-weight: 300;
+  font-style: italic;
 }
 
 .quote-block .quote-src {
