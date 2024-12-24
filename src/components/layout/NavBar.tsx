@@ -8,9 +8,9 @@ function NavBar() {
         <div className="navbar">
             <img src={logo} alt="Logo" className="navbar-logo" />
             <div className="navbar-links">
-                <a href="#unit-overview">Unit Overview</a>
-                <a href="#references">References</a>
-                <a href="#contact">Contact</a>
+                <a href="/unit-overview">Unit Overview</a>
+                <a href="/references">References</a>
+                <a href="/contact">Contact</a>
                 <FaSearch className="navbar-search-icon" />
             </div>
 
