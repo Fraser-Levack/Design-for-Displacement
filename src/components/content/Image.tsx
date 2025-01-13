@@ -9,6 +9,10 @@ interface Props {
 
 
 function Image ({ source, figcaption=true , size = "30rem", lightText=false }: Props) {
+    // check source is not null
+    if (!source) {
+        return null;
+    }
     const altText = source.split("/").pop()?.split(".")[0]?.replace(/_/g, " ") || "";
 
     const imageStyle = { height: size };
