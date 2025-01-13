@@ -3,7 +3,7 @@ import "../../css/content/InfoBlock.css";
 import React from "react";
 
 interface Props {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     title?: string;
     span?: number[];
     columns?: number;

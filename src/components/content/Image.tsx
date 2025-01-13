@@ -1,7 +1,7 @@
 import "../../css/content/Image.css";
 
 interface Props {
-    source: string;
+    source?: string;
     figcaption?: boolean;
     size?: string;
     lightText?: boolean;

@@ -1,7 +1,10 @@
 import { useEffect, useState } from 'react';
+import JSXParser from 'react-jsx-parser';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { writeBlockData, readAllBlocks } from '../../firebase';
+import InfoBlock from '../content/InfoBlock.tsx';
+import Image from "../content/Image.tsx";
 
 interface BlockData {
     id: number;
@@ -11,6 +14,7 @@ interface BlockData {
 function InputBlock() {
     const [blockId, setBlockId] = useState<number>(0);
     const [blocks, setBlocks] = useState<BlockData[]>([]);
+    const [content, setContent] = useState<string>('');
 
     useEffect(() => {
         readAllBlocks((data: BlockData[]) => {
@@ -21,24 +25,37 @@ function InputBlock() {
     }, []);
 
     const handleSave = () => {
-        writeBlockData(blockId, 'John Doe');
+        writeBlockData(blockId, content);
         setBlockId(prevBlockId => prevBlockId + 1); // Increment blockId
+        setContent(''); // Clear the input field
     };
 
     return (
         <div>
-            <h1>data</h1>
-            {blocks.length > 0 ? (
-                blocks.map((block: BlockData) => (
-                    <div key={block.id}>
-                        <p>Block ID: {block.id}</p>
-                        <p>Data: {block.content}</p>
-                    </div>
-                ))
-            ) : (
-                <p>Loading...</p>
-            )}
-            <button onClick={handleSave}>Save User Data</button>
+            <h1>Block Profile</h1>
+            <textarea
+                value={content}
+                onChange={(e) => setContent(e.target.value)}
+                placeholder="Enter block content"
+                rows={10}
+                cols={50}
+            />
+            <button onClick={handleSave}>Save Block Data</button>
+            <div>
+                {blocks.length > 0 ? (
+                    blocks.map((block: BlockData) => (
+                        <div key={block.id}>
+                            <p>Block ID: {block.id}</p>
+                            <JSXParser
+                                components={{ InfoBlock, Image }}
+                                jsx={block.content}
+                            />
+                        </div>
+                    ))
+                ) : (
+                    <p>Loading...</p>
+                )}
+            </div>
         </div>
     );
 }
