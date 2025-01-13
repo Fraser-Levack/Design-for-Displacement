@@ -1,44 +1,12 @@
-import React, { useEffect, useState } from 'react';
-// eslint-disable-next-line @typescript-eslint/ban-ts-comment
-// @ts-expect-error
-import { writeUserData, readUserData } from '../firebase';
+import InputBlock from "./admin/InputBlock.tsx";
 
-interface UserData {
-    username: string;
-    email: string;
-}
-
-interface AdminProps {
-    userId: string;
-}
-
-const Admin: React.FC<AdminProps> = ({ userId }) => {
-    const [userData, setUserData] = useState<UserData | null>(null);
-
-    useEffect(() => {
-        readUserData(userId, (data: UserData) => {
-            setUserData(data);
-        });
-    }, [userId]);
-
-    const handleSave = () => {
-        writeUserData(userId, 'John Doe', 'john.doe@example.com');
-    };
-
+function Admin ()   {
     return (
         <div>
-            <h1>User Profile</h1>
-            {userData ? (
-                <div>
-                    <p>Username: {userData.username}</p>
-                    <p>Email: {userData.email}</p>
-                </div>
-            ) : (
-                <p>Loading...</p>
-            )}
-            <button onClick={handleSave}>Save User Data</button>
+            <h1>Admin</h1>
+            <InputBlock />
         </div>
-    );
-};
+    )
+}
 
 export default Admin;
