@@ -1,22 +1,31 @@
-import { useEffect, useState } from 'react';
+import {useEffect, useState, useRef} from 'react';
 import JSXParser from 'react-jsx-parser';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import { writeBlockData, readAllBlocks } from '../../firebase';
+import {readAllBlocks, writeBlockData} from '../../firebase';
 import InfoBlock from '../content/InfoBlock.tsx';
 import Image from "../content/Image.tsx";
+import '../../css/InputBlock.css';
 
 interface BlockData {
     id: number;
     content: string;
 }
 
-function InputBlock() {
+// Event type for contentEditable div
+type ContentEditableEvent = React.FormEvent<HTMLDivElement> & {
+    currentTarget: HTMLDivElement;
+};
+
+const InputBlock: React.FC = () => {
     const [blockId, setBlockId] = useState<number>(0);
     const [blocks, setBlocks] = useState<BlockData[]>([]);
     const [content, setContent] = useState<string>('');
+    const editorRef = useRef<HTMLDivElement>(null);
+    const lastCursorPosition = useRef<number>(0);
 
     useEffect(() => {
+        // Your existing readAllBlocks logic here
         readAllBlocks((data: BlockData[]) => {
             setBlocks(data);
             const maxId = data.reduce((max, block) => (block.id > max ? block.id : max), 0);
@@ -24,28 +33,98 @@ function InputBlock() {
         });
     }, []);
 
-    const handleSave = () => {
-        writeBlockData(blockId, content);
-        setBlockId(prevBlockId => prevBlockId + 1); // Increment blockId
-        setContent(''); // Clear the input field
+    const highlightHTMLTags = (text: string): string => {
+        const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
+        return escapedText.replace(/(&lt;\/?[\w-]+(?:\s+[^&gt;]*)?&gt;)/g,
+            (match) => `<span class="highlight">${match}</span>`
+        );
+    };
+
+    const saveSelection = (): void => {
+        const selection = window.getSelection();
+        if (selection && selection.rangeCount > 0 && editorRef.current) {
+            const range = selection.getRangeAt(0);
+            const preCaretRange = range.cloneRange();
+            preCaretRange.selectNodeContents(editorRef.current);
+            preCaretRange.setEnd(range.endContainer, range.endOffset);
+            lastCursorPosition.current = preCaretRange.toString().length;
+        }
+    };
+
+    const restoreSelection = (): void => {
+        const editableDiv = editorRef.current;
+        if (!editableDiv) return;
+
+        const selection = window.getSelection();
+        if (!selection) return;
+
+        const range = document.createRange();
+        let currentLength = 0;
+        let targetNode: Node | null = null;
+        let targetOffset = 0;
+
+        const findTextNode = (node: Node): boolean => {
+            if (node.nodeType === Node.TEXT_NODE) {
+                const nodeLength = node.textContent?.length || 0;
+                if (currentLength + nodeLength >= lastCursorPosition.current) {
+                    targetNode = node;
+                    targetOffset = lastCursorPosition.current - currentLength;
+                    return true;
+                }
+                currentLength += nodeLength;
+            } else {
+                for (let i = 0; i < node.childNodes.length; i++) {
+                    if (findTextNode(node.childNodes[i])) {
+                        return true;
+                    }
+                }
+            }
+            return false;
+        };
+
+        findTextNode(editableDiv);
+
+        if (targetNode) {
+            range.setStart(targetNode, targetOffset);
+            range.collapse(true);
+            selection.removeAllRanges();
+            selection.addRange(range);
+        }
+    };
+
+    const handleInput = (e: ContentEditableEvent): void => {
+        saveSelection();
+        const newContent = e.currentTarget.innerText;
+        setContent(newContent);
+
+        requestAnimationFrame(() => {
+            if (editorRef.current) {
+                editorRef.current.innerHTML = highlightHTMLTags(newContent);
+                restoreSelection();
+            }
+        });
+    };
+
+    const handleSave = (): void => {
+        if (content.trim()) {
+            writeBlockData(blockId, content);
+            setBlockId(prev => prev + 1);
+            setContent('');
+            if (editorRef.current) {
+                editorRef.current.innerHTML = '';
+            }
+        }
     };
 
     return (
-        <div>
-            <h1>Block Profile</h1>
-            <textarea
-                value={content}
-                onChange={(e) => setContent(e.target.value)}
-                placeholder="Enter block content"
-                rows={10}
-                cols={50}
-            />
-            <button onClick={handleSave}>Save Block Data</button>
-            <div>
+        <div className="p-4">
+            <h1 className="text-2xl font-bold mb-4">Block Profile</h1>
+
+            <div className="mb-4">
                 {blocks.length > 0 ? (
                     blocks.map((block: BlockData) => (
-                        <div key={block.id}>
-                            <p>Block ID: {block.id}</p>
+                        <div key={block.id} className="mb-2">
+                            <p className="text-sm text-gray-600">Block ID: {block.id}</p>
                             <JSXParser
                                 components={{ InfoBlock, Image }}
                                 jsx={block.content}
@@ -56,8 +135,23 @@ function InputBlock() {
                     <p>Loading...</p>
                 )}
             </div>
+
+            <div
+                ref={editorRef}
+                contentEditable
+                onInput={handleInput}
+                className="editable"
+                dangerouslySetInnerHTML={{ __html: highlightHTMLTags(content) }}
+            />
+
+            <button
+                onClick={handleSave}
+                type="button"
+            >
+                Save Block Data
+            </button>
         </div>
     );
-}
+};
 
 export default InputBlock;
