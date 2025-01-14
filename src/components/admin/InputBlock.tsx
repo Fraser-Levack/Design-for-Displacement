@@ -108,7 +108,7 @@ const InputBlock: React.FC = () => {
     const handleSave = (): void => {
         if (content.trim()) {
             writeBlockData(blockId, content);
-            setBlockId(prev => prev + 1);
+            setBlockId(prev => prev);
             setContent('');
             if (editorRef.current) {
                 editorRef.current.innerHTML = '';
