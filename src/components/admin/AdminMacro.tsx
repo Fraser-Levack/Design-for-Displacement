@@ -1,9 +1,21 @@
+import { Link } from 'react-router-dom';
+import '../../css/Admin.css';
+import InputBlock from "./InputBlock.tsx";
+
 function AdminMacro () {
-  return (
-    <div>
-      <h1>Admin Macro</h1>
-    </div>
-  );
+    return (
+        <>
+            <div className={"admin-header"}>
+                <section className={"top-header"}>
+                    <h1>Admin Macro</h1>
+                    <Link to="/admin" className={"custom-link"}>
+                        <h2>Go back to Admin</h2>
+                    </Link>
+                </section>
+            </div>
+            <InputBlock blockPath={"blocks/macro/"}/>
+        </>
+    );
 }
 
 export default AdminMacro;

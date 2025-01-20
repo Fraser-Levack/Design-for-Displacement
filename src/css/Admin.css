@@ -36,3 +36,13 @@
 .custom-link:hover h2 {
   background-color: var(--secondary-color);
 }
+
+.top-header {
+  display: flex;
+  justify-content: space-between;
+  margin: 2rem 10rem;
+}
+
+.top-header h1 {
+  padding: 0.5rem 1rem;
+}
