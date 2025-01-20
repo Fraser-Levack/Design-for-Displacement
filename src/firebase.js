@@ -20,26 +20,17 @@ const analytics = getAnalytics(app);
 const db = getDatabase();
 
 // Function to write data
-export const writeBlockData = (blockId, contentInfo) => {
-    set(ref(db, 'blocks/' + blockId), {
+export const writeBlockData = (blockId, contentInfo, blockPath) => {
+    set(ref(db, blockPath + blockId), {
         content: contentInfo,
     }).then( () => {
         console.log('Data is saved');
     })
 };
 
-// Function to read data
-export const readBlockData = (blockId, callback) => {
-    const userRef = ref(db, 'users/' + blockId);
-    onValue(userRef, (snapshot) => {
-        const data = snapshot.val();
-        callback(data);
-    });
-};
-
 // Function to read all blocks
-export const readAllBlocks = (callback) => {
-    const blocksRef = ref(db, 'blocks');
+export const readAllBlocks = (callback, blockPath) => {
+    const blocksRef = ref(db, blockPath);
     onValue(blocksRef, (snapshot) => {
         const data = snapshot.val();
         const blocksArray = Object.keys(data).map(key => ({

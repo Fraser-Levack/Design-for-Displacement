@@ -1,11 +1,16 @@
-import {useEffect, useState, useRef} from 'react';
+// src/components/admin/InputBlock.tsx
+import React, { useEffect, useState, useRef } from 'react';
 import JSXParser from 'react-jsx-parser';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import {readAllBlocks, writeBlockData} from '../../firebase';
+import { readAllBlocks, writeBlockData } from '../../firebase';
 import InfoBlock from '../content/InfoBlock.tsx';
 import Image from "../content/Image.tsx";
 import '../../css/InputBlock.css';
+
+interface InfoBlockProps {
+    blockPath?: string;
+}
 
 interface BlockData {
     id: number;
@@ -17,7 +22,7 @@ type ContentEditableEvent = React.FormEvent<HTMLDivElement> & {
     currentTarget: HTMLDivElement;
 };
 
-const InputBlock: React.FC = () => {
+const InputBlock: React.FC<InfoBlockProps> = ({ blockPath = "blocks/macro/" }) => {
     const [blockId, setBlockId] = useState<number>(0);
     const [blocks, setBlocks] = useState<BlockData[]>([]);
     const [content, setContent] = useState<string>('');
@@ -25,13 +30,12 @@ const InputBlock: React.FC = () => {
     const lastCursorPosition = useRef<number>(0);
 
     useEffect(() => {
-        // Your existing readAllBlocks logic here
         readAllBlocks((data: BlockData[]) => {
             setBlocks(data);
             const maxId = data.reduce((max, block) => (block.id > max ? block.id : max), 0);
             setBlockId(maxId + 1);
-        });
-    }, []);
+        }, blockPath);
+    }, [blockPath]);
 
     const highlightHTMLTags = (text: string): string => {
         const escapedText = text.replace(/</g, '&lt;').replace(/>/g, '&gt;');
@@ -107,7 +111,7 @@ const InputBlock: React.FC = () => {
 
     const handleSave = (): void => {
         if (content.trim()) {
-            writeBlockData(blockId, content);
+            writeBlockData(blockId, content, blockPath);
             setBlockId(prev => prev);
             setContent('');
             if (editorRef.current) {
