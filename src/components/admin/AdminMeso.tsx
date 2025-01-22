@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../../css/Admin.css';
 import InputBlock from "./InputBlock.tsx";
+import UploadWidget from "./UploadWidget.tsx";
 
 function AdminMeso () {
     return (
@@ -13,6 +14,9 @@ function AdminMeso () {
                     </Link>
                 </section>
             </div>
+            <UploadWidget cloudName="dtlj6wzki"
+                          uploadPreset="gggggug"
+                          folder="Meso" />
             <InputBlock blockPath={"blocks/meso/"}/>
         </>
     );

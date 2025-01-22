@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../../css/Admin.css';
 import InputBlock from "./InputBlock.tsx";
+import UploadWidget from "./UploadWidget.tsx";
 
 function AdminMicro () {
     return (
@@ -13,6 +14,9 @@ function AdminMicro () {
                     </Link>
                 </section>
             </div>
+            <UploadWidget cloudName="dtlj6wzki"
+                          uploadPreset="gggggug"
+                          folder="Micro" />
             <InputBlock blockPath={"blocks/micro/"}/>
         </>
     );

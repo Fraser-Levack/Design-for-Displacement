@@ -14,7 +14,9 @@ function AdminMacro () {
                     </Link>
                 </section>
             </div>
-            <UploadWidget />
+            <UploadWidget cloudName="dtlj6wzki"
+                          uploadPreset="gggggug"
+                          folder="Macro" />
             <InputBlock blockPath={"blocks/macro/"}/>
         </>
     );

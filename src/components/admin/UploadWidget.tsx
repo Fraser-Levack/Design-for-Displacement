@@ -1,5 +1,15 @@
 import { useEffect, useRef } from "react";
 
+interface UploadWidgetProps {
+    cloudName: string;
+    uploadPreset: string;
+    folder?: string;
+    sources?: string[];
+    multiple?: boolean;
+    maxFiles?: number;
+    cropping?: boolean;
+}
+
 interface UploadWidgetResult {
     event: string;
     info: {
@@ -20,19 +30,9 @@ interface CloudinaryWidget {
     destroy: () => void;
 }
 
-interface UploadWidgetOptions {
-    cloudName: string;
-    uploadPreset: string;
-    folder?: string;
-    sources?: string[];
-    multiple?: boolean;
-    maxFiles?: number;
-    cropping?: boolean;
-}
-
 interface CloudinaryInstance {
     createUploadWidget: (
-        options: UploadWidgetOptions,
+        options: UploadWidgetProps,
         callback: (error: UploadWidgetError | null, result: UploadWidgetResult | null) => void
     ) => CloudinaryWidget;
 }
@@ -43,7 +43,15 @@ declare global {
     }
 }
 
-function UploadWidget() {
+function UploadWidget({
+                          cloudName,
+                          uploadPreset,
+                          folder,
+                          sources,
+                          multiple,
+                          maxFiles,
+                          cropping
+                      }: UploadWidgetProps) {
     const cloudinaryRef = useRef<CloudinaryInstance | null>(null);
     const widgetRef = useRef<CloudinaryWidget | null>(null);
 
@@ -52,8 +60,13 @@ function UploadWidget() {
         if (cloudinaryRef.current) {
             widgetRef.current = cloudinaryRef.current.createUploadWidget(
                 {
-                    cloudName: 'dtlj6wzki',
-                    uploadPreset: 'gggggug',
+                    cloudName,
+                    uploadPreset,
+                    folder,
+                    sources,
+                    multiple,
+                    maxFiles,
+                    cropping
                 },
                 (error, result) => {
                     if (error) {
@@ -66,7 +79,7 @@ function UploadWidget() {
                 }
             );
         }
-    }, []);
+    }, [cloudName, uploadPreset, folder, sources, multiple, maxFiles, cropping]);
 
     return (
         <button
