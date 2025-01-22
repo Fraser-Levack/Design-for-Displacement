@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import '../../css/Admin.css';
 import InputBlock from "./InputBlock.tsx";
+import UploadWidget from "./UploadWidget.tsx";
 
 function AdminMacro () {
     return (
@@ -13,6 +14,7 @@ function AdminMacro () {
                     </Link>
                 </section>
             </div>
+            <UploadWidget />
             <InputBlock blockPath={"blocks/macro/"}/>
         </>
     );
