@@ -98,6 +98,12 @@
   display: none;
 }
 
+.lower-section-content {
+  white-space: pre-line;
+  display:inline-block;
+  text-align: start;
+}
+
 .closed {
   display: none;
 }
