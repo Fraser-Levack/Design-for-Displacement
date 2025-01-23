@@ -1,7 +1,7 @@
 import { useState, useEffect, useRef } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
-import { deleteBlockData } from '../../firebase';
+import { updateBlockData, deleteBlockData } from '../../firebase';
 import '../../css/admin/ContentEdit.css';
 
 interface props {
@@ -15,6 +15,7 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
     const [isDeleteBox, setIsDeleteBox] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const deleteBoxRef = useRef<HTMLDivElement>(null);
+    const contentRef = useRef<HTMLParagraphElement>(null);
 
     function handleOpen() {
         setIsOpen(!isOpen);
@@ -34,6 +35,20 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
         if (!isOpen) {
             setIsOpen(true);
         }
+    }
+
+    function handleSaveBlock() {
+        const updatedContent = contentRef.current?.innerText || '';
+        updateBlockData(blockId, updatedContent, blockPath);
+        setIsEditing(false);
+    }
+
+    function handleCancelEdit() {
+        if (contentRef.current) {
+            contentRef.current.innerText = blockContent || '';
+        }
+        setIsEditing(false);
+        setIsOpen(false);
     }
 
     useEffect(() => {
@@ -68,10 +83,10 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
                 <div className={'icon-options'}>
 
                     <img src='/icons/x-square.svg' alt={'cancel'}
-                         className={`cancel-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleEditing}/>
+                         className={`cancel-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleCancelEdit}/>
 
                     <img src='/icons/check-square.svg' alt={'save'}
-                         className={`save-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleEditing}/>
+                         className={`save-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleSaveBlock}/>
 
                     <img src='/icons/edit.svg' alt={'edit'}
                          className={`edit-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleEditing}/>
@@ -83,7 +98,7 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
                 </div>
             </section>
             <section className={`lower-section-content ${!isOpen ? 'closed' : ''}`}>
-                <p>{blockContent}</p>
+                <p ref={contentRef} contentEditable={isEditing}>{blockContent}</p>
             </section>
 
         </div>
