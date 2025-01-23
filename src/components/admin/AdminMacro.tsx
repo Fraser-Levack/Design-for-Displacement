@@ -10,7 +10,10 @@ function AdminMacro () {
                 <section className={"top-header"}>
                     <h1>Admin Macro</h1>
                     <Link to="/admin" className={"custom-link"}>
-                        <h2>Go back to Admin</h2>
+                    <h2>Go back to Admin</h2>
+                    </Link>
+                    <Link to="/" className={"custom-link"}>
+                        <h2>Go back to Main DfD</h2>
                     </Link>
                 </section>
             </div>

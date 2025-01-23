@@ -12,6 +12,9 @@ function AdminMeso () {
                     <Link to="/admin" className={"custom-link"}>
                         <h2>Go back to Admin</h2>
                     </Link>
+                    <Link to="/" className={"custom-link"}>
+                        <h2>Go back to Main DfD</h2>
+                    </Link>
                 </section>
             </div>
             <UploadWidget cloudName="dtlj6wzki"

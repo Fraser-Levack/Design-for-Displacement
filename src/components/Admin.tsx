@@ -4,16 +4,23 @@ import '../css/Admin.css';
 function Admin ()   {
     return (
         <div>
-            <h1 className={"admin-header"}>Design For Displacement Admin</h1>
+            <h2 className={"admin-header"}>
+                <section className={"top-header"}>
+                    <h1>Design For Displacement Admin</h1>
+                    <Link to="/" className={"custom-link"}>
+                        <h2>Go back to Main DfD</h2>
+                    </Link>
+                </section>
+            </h2>
             <div className={"sections"}>
                 <section className={"macro-section"}>
                     <Link to="/admin/macro" className={"custom-link"}>
                         <h2>Macro</h2>
                     </Link>
                 </section>
-                <section className={"meso-section"} >
+                <section className={"meso-section"}>
                     <Link to="/admin/meso" className={"custom-link"}>
-                        <h2>Meso</h2>
+                    <h2>Meso</h2>
                     </Link>
                 </section>
                 <section className={"micro-section"}>
