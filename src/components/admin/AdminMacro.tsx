@@ -3,6 +3,7 @@ import '../../css/Admin.css';
 import InputBlock from "./InputBlock.tsx";
 import UploadWidget from "./UploadWidget.tsx";
 
+
 function AdminMacro () {
     return (
         <>

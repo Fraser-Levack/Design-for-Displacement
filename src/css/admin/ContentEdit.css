@@ -104,9 +104,8 @@
 }
 
 .lower-section-content {
-  white-space: pre-line;
-  display:inline-block;
-  text-align: start;
+  width: 100%;
+  border-radius: 1rem;
 }
 
 .closed {

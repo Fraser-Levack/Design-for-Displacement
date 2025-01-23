@@ -5,6 +5,7 @@ import { updateBlockData, deleteBlockData } from '../../firebase';
 import JSXParser from 'react-jsx-parser';
 import InfoBlock from '../content/InfoBlock.tsx';
 import Image from "../content/Image.tsx";
+import CodeWidget from "./CodeWidget.tsx";
 import '../../css/admin/ContentEdit.css';
 
 interface props {
@@ -18,8 +19,8 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
     const [isDeleteBox, setIsDeleteBox] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
     const [isPreview, setIsPreview] = useState<boolean>(false);
+    const [codeValue, setCodeValue] = useState<string>(blockContent || '');
     const deleteBoxRef = useRef<HTMLDivElement>(null);
-    const contentRef = useRef<HTMLParagraphElement>(null);
 
     function handleOpen() {
         setIsOpen(!isOpen);
@@ -42,15 +43,12 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
     }
 
     function handleSaveBlock() {
-        const updatedContent = contentRef.current?.innerText || '';
-        updateBlockData(blockId, updatedContent, blockPath);
+        updateBlockData(blockId, codeValue, blockPath);
         setIsEditing(false);
     }
 
     function handleCancelEdit() {
-        if (contentRef.current) {
-            contentRef.current.innerText = blockContent || '';
-        }
+        setCodeValue(blockContent || '');
         setIsEditing(false);
         setIsOpen(false);
     }
@@ -79,54 +77,53 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
 
     return (
         <>
-        <div className={'content-edit'}>
-            <section ref={deleteBoxRef} className={`delete-box ${!isDeleteBox ? 'null-del-box' : ''}`}>
-                <h2> Are you sure you would like to delete block {blockId}?</h2>
-                <div className={'delete-options'}>
-                    <h3 onClick={handleDeleteBlock}>Yes</h3>
-                    <h3 onClick={handleDeleteBoxShow}>No</h3>
-                </div>
-            </section>
-            <section className={'top-section-options'}>
-                <h3>{blockId}</h3>
-                <div className={'icon-options'}>
+            <div className={'content-edit'}>
+                <section ref={deleteBoxRef} className={`delete-box ${!isDeleteBox ? 'null-del-box' : ''}`}>
+                    <h2> Are you sure you would like to delete block {blockId}?</h2>
+                    <div className={'delete-options'}>
+                        <h3 onClick={handleDeleteBlock}>Yes</h3>
+                        <h3 onClick={handleDeleteBoxShow}>No</h3>
+                    </div>
+                </section>
+                <section className={'top-section-options'}>
+                    <h3>{blockId}</h3>
+                    <div className={'icon-options'}>
 
-                    <img src='/icons/x-square.svg' alt={'cancel'}
-                         className={`cancel-icon ${isEditing ? 'active-edit' : 'not-edit'}`}
-                         onClick={handleCancelEdit}/>
+                        <img src='/icons/x-square.svg' alt={'cancel'}
+                             className={`cancel-icon ${isEditing ? 'active-edit' : 'not-edit'}`}
+                             onClick={handleCancelEdit}/>
 
-                    <img src='/icons/check-square.svg' alt={'save'}
-                         className={`save-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleSaveBlock}/>
+                        <img src='/icons/check-square.svg' alt={'save'}
+                             className={`save-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleSaveBlock}/>
 
-                    <img src='/icons/edit.svg' alt={'edit'}
-                         className={`edit-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleEditing}/>
+                        <img src='/icons/edit.svg' alt={'edit'}
+                             className={`edit-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleEditing}/>
 
-                    <img src='/icons/trash.svg' alt={'delete'} className={'delete-icon'} onClick={handleDeleteBoxShow}/>
+                        <img src='/icons/trash.svg' alt={'delete'} className={'delete-icon'} onClick={handleDeleteBoxShow}/>
 
-                    <img src='/icons/eye-off.svg' alt={'preview'}
-                         className={`preview-icon ${!isPreview ? 'closed' : ''}`} onClick={handlePreview}/>
+                        <img src='/icons/eye-off.svg' alt={'preview'}
+                             className={`preview-icon ${!isPreview ? 'closed' : ''}`} onClick={handlePreview}/>
 
-                    <img src='/icons/eye.svg' alt={'preview'}
-                         className={`preview-icon ${isPreview ? 'closed' : ''}`} onClick={handlePreview}/>
+                        <img src='/icons/eye.svg' alt={'preview'}
+                             className={`preview-icon ${isPreview ? 'closed' : ''}`} onClick={handlePreview}/>
 
-                    <img src='/icons/chevron-right.svg' alt={'options'}
-                         className={isOpen ? 'chevron-open' : 'chevron-closed'} onClick={handleOpen}/>
-                </div>
-            </section>
-            <section className={`lower-section-content ${!isOpen ? 'closed' : ''}`}>
-                <p ref={contentRef} contentEditable={isEditing}>{blockContent}</p>
-            </section>
+                        <img src='/icons/chevron-right.svg' alt={'options'}
+                             className={isOpen ? 'chevron-open' : 'chevron-closed'} onClick={handleOpen}/>
+                    </div>
+                </section>
+                <section className={`lower-section-content ${!isOpen ? 'closed' : ''}`}>
+                    <CodeWidget editable={isEditing} initialValue={blockContent} onValueChange={setCodeValue}/>
+                </section>
 
-        </div>
-        <div className={`jsx-preview ${!isPreview ? 'closed' : ''}`}>
-            <JSXParser
-                components={{InfoBlock, Image}}
-                jsx={blockContent}
-            />
-        </div>
+            </div>
+            <div className={`jsx-preview ${!isPreview ? 'closed' : ''}`}>
+                <JSXParser
+                    components={{InfoBlock, Image}}
+                    jsx={blockContent}
+                />
+            </div>
         </>
-)
-    ;
+    );
 }
 
 export default ContentEdit;
