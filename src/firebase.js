@@ -40,3 +40,19 @@ export const readAllBlocks = (callback, blockPath) => {
         callback(blocksArray);
     });
 };
+
+// Function to update/set a block base off of numerical id
+export const updateBlockData = (blockId, contentInfo, blockPath) => {
+    set(ref(db, blockPath + blockId), {
+        content: contentInfo,
+    }).then( () => {
+        console.log('Data is updated');
+    })
+};
+
+// Function to delete a block based off of numerical id
+export const deleteBlockData = (blockId, blockPath) => {
+    set(ref(db, blockPath + blockId), null).then( () => {
+        console.log('Data is deleted');
+    })
+};
