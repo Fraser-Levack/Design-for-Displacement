@@ -1,11 +1,9 @@
 // src/components/admin/InputBlock.tsx
 import React, { useEffect, useState, useRef } from 'react';
-//import JSXParser from 'react-jsx-parser';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { readAllBlocks, writeBlockData } from '../../firebase';
-//import InfoBlock from '../content/InfoBlock.tsx';
-//import Image from "../content/Image.tsx";
+
 import '../../css/admin/InputBlock.css';
 import './ContentEdit.tsx'
 import ContentEdit from "./ContentEdit.tsx";
@@ -128,12 +126,7 @@ const InputBlock: React.FC<InfoBlockProps> = ({ blockPath = "blocks/macro/" }) =
             <div className="mb-4">
                 {blocks.length > 0 ? (
                     blocks.map((block: BlockData) => (
-                        <div key={block.id} className="mb-2">
-                            {/*<p className="text-sm text-gray-600">Block ID: {block.id}</p>*/}
-                            {/*<JSXParser*/}
-                            {/*    components={{ InfoBlock, Image }}*/}
-                            {/*    jsx={block.content}*/}
-                            {/*/>*/}
+                        <div key={block.id}>
                             <ContentEdit blockId={block.id} blockContent={block.content} blockPath={blockPath}/>
                         </div>
                     ))

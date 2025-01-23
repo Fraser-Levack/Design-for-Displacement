@@ -2,6 +2,9 @@ import { useState, useEffect, useRef } from 'react';
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { updateBlockData, deleteBlockData } from '../../firebase';
+import JSXParser from 'react-jsx-parser';
+import InfoBlock from '../content/InfoBlock.tsx';
+import Image from "../content/Image.tsx";
 import '../../css/admin/ContentEdit.css';
 
 interface props {
@@ -14,6 +17,7 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
     const [isOpen, setIsOpen] = useState<boolean>(false);
     const [isDeleteBox, setIsDeleteBox] = useState<boolean>(false);
     const [isEditing, setIsEditing] = useState<boolean>(false);
+    const [isPreview, setIsPreview] = useState<boolean>(false);
     const deleteBoxRef = useRef<HTMLDivElement>(null);
     const contentRef = useRef<HTMLParagraphElement>(null);
 
@@ -51,6 +55,10 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
         setIsOpen(false);
     }
 
+    function handlePreview() {
+        setIsPreview(!isPreview);
+    }
+
     useEffect(() => {
         function handleClickOutside(event: MouseEvent) {
             if (deleteBoxRef.current && !deleteBoxRef.current.contains(event.target as Node)) {
@@ -70,6 +78,7 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
     }, [isDeleteBox]);
 
     return (
+        <>
         <div className={'content-edit'}>
             <section ref={deleteBoxRef} className={`delete-box ${!isDeleteBox ? 'null-del-box' : ''}`}>
                 <h2> Are you sure you would like to delete block {blockId}?</h2>
@@ -83,7 +92,8 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
                 <div className={'icon-options'}>
 
                     <img src='/icons/x-square.svg' alt={'cancel'}
-                         className={`cancel-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleCancelEdit}/>
+                         className={`cancel-icon ${isEditing ? 'active-edit' : 'not-edit'}`}
+                         onClick={handleCancelEdit}/>
 
                     <img src='/icons/check-square.svg' alt={'save'}
                          className={`save-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleSaveBlock}/>
@@ -92,6 +102,12 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
                          className={`edit-icon ${isEditing ? 'active-edit' : 'not-edit'}`} onClick={handleEditing}/>
 
                     <img src='/icons/trash.svg' alt={'delete'} className={'delete-icon'} onClick={handleDeleteBoxShow}/>
+
+                    <img src='/icons/eye-off.svg' alt={'preview'}
+                         className={`preview-icon ${!isPreview ? 'closed' : ''}`} onClick={handlePreview}/>
+
+                    <img src='/icons/eye.svg' alt={'preview'}
+                         className={`preview-icon ${isPreview ? 'closed' : ''}`} onClick={handlePreview}/>
 
                     <img src='/icons/chevron-right.svg' alt={'options'}
                          className={isOpen ? 'chevron-open' : 'chevron-closed'} onClick={handleOpen}/>
@@ -102,7 +118,15 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
             </section>
 
         </div>
-    );
+        <div className={`jsx-preview ${!isPreview ? 'closed' : ''}`}>
+            <JSXParser
+                components={{InfoBlock, Image}}
+                jsx={blockContent}
+            />
+        </div>
+        </>
+)
+    ;
 }
 
 export default ContentEdit;

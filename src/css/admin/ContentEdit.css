@@ -82,6 +82,11 @@
   margin: 1rem;
 }
 
+.preview-icon {
+  cursor: pointer;
+  margin: 1rem;
+}
+
 .save-icon.not-edit {
   display: none;
 }
