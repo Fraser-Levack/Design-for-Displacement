@@ -67,6 +67,33 @@
   cursor: pointer;
 }
 
+.edit-icon {
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.save-icon {
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.cancel-icon {
+  cursor: pointer;
+  margin: 1rem;
+}
+
+.save-icon.not-edit {
+  display: none;
+}
+
+.cancel-icon.not-edit {
+  display: none;
+}
+
+.edit-icon.active-edit {
+  display:none
+}
+
 .null-del-box {
   display: none;
 }

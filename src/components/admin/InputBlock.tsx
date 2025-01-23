@@ -134,7 +134,7 @@ const InputBlock: React.FC<InfoBlockProps> = ({ blockPath = "blocks/macro/" }) =
                             {/*    components={{ InfoBlock, Image }}*/}
                             {/*    jsx={block.content}*/}
                             {/*/>*/}
-                            <ContentEdit blockId={block.id} blockContent={block.content} />
+                            <ContentEdit blockId={block.id} blockContent={block.content} blockPath={blockPath}/>
                         </div>
                     ))
                 ) : (
