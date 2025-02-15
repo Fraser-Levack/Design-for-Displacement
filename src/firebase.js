@@ -2,6 +2,7 @@ import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/database';
 import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
 
@@ -56,3 +57,5 @@ export const deleteBlockData = (blockId, blockPath) => {
         console.log('Data is deleted');
     })
 };
+
+export const auth = getAuth(app);
