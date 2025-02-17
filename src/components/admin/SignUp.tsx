@@ -9,6 +9,9 @@ function SignUp() {
     const navigate = useNavigate();
     const [dfdCode, setDfdCode] = useState<string>('');
     const [enteredCode, setEnteredCode] = useState<string>('');
+    const [password, setPassword] = useState<string>('');
+    const [confirmPassword, setConfirmPassword] = useState<string>('');
+    const [error, setError] = useState<string>('');
 
     useEffect(() => {
         async function fetchDFDCode() {
@@ -28,10 +31,16 @@ function SignUp() {
         const form = event.currentTarget;
         const email = form.email.value;
         const password = form.password.value;
+        const confirmPassword = form.confirmPassword.value;
         const code = form.code.value.trim(); // Trim any leading/trailing whitespace
 
+        if (password !== confirmPassword) {
+            setError("Passwords do not match.");
+            return;
+        }
+
         if (code !== dfdCode) {
-            alert("Invalid code. Please try again.");
+            setError("Invalid code. Please try again.");
             return;
         }
 
@@ -51,9 +60,30 @@ function SignUp() {
             <form onSubmit={handleSubmit}>
                 <input name="email" type="email" placeholder="Email" />
                 <br />
-                <input name="password" type="password" placeholder="Password" />
+                <input
+                    name="password"
+                    type="password"
+                    placeholder="Password"
+                    value={password}
+                    onChange={(e) => setPassword(e.target.value)}
+                />
                 <br />
-                <input name="code" type="text" placeholder="Enter six-digit code" value={enteredCode} onChange={(e) => setEnteredCode(e.target.value)} />
+                <input
+                    name="confirmPassword"
+                    type="password"
+                    placeholder="Confirm Password"
+                    value={confirmPassword}
+                    onChange={(e) => setConfirmPassword(e.target.value)}
+                />
+                <br />
+                {error && <p style={{ color: 'red' }}>{error}</p>}
+                <input
+                    name="code"
+                    type="text"
+                    placeholder="Enter six-digit code"
+                    value={enteredCode}
+                    onChange={(e) => setEnteredCode(e.target.value)}
+                />
                 <br />
                 <button type="submit">Sign Up</button>
             </form>
