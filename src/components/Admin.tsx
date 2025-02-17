@@ -1,23 +1,17 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from "react";
 import '../css/Admin.css';
-import { onAuthStateChanged, User} from "firebase/auth";
+import { User } from "firebase/auth";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { auth } from "../firebase";
-import { handleSignOut} from "../utils/auth.ts";
+import { handleSignOut, subscribeToAuthChanges } from "../utils/auth.ts";
 
 function Admin ()   {
     const [user, setUser] = useState<User | null>(null);
 
     useEffect(() => {
-        const unsubscribe = onAuthStateChanged(auth, (user) => {
-            if (user) {
-                setUser(user);
-            } else {
-                setUser(null);
-            }
-        });
+        const unsubscribe = subscribeToAuthChanges(auth, setUser);
 
         // Cleanup subscription on unmount
         return () => unsubscribe();

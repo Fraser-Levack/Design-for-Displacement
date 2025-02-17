@@ -1,6 +1,7 @@
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { auth } from '../firebase';
+import { onAuthStateChanged, User, Auth } from "firebase/auth";
 import { createUserWithEmailAndPassword, signInWithEmailAndPassword, signOut } from "firebase/auth";
 
 const handleSignUp = async (email: string, password: string) => {
@@ -27,4 +28,14 @@ const handleSignOut = async () => {
     return true;
 };
 
-export { handleSignUp, handleSignIn, handleSignOut };
+function subscribeToAuthChanges(auth: Auth, setUser: (user: User | null) => void) {
+    return onAuthStateChanged(auth, (user) => {
+        if (user) {
+            setUser(user);
+        } else {
+            setUser(null);
+        }
+    });
+}
+
+export { handleSignUp, handleSignIn, handleSignOut, subscribeToAuthChanges };
