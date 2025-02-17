@@ -6,6 +6,7 @@ declare module '../firebase' {
     export function deleteBlockData(blockId: string): void;
     export function updateBlockData(blockId: string, content: string): void;
     export function reindexBlocks(blockPath: string): void;
+    export function insertBlockData(targetId: number, content: string, blockPath: string): Promise<void>;
     export function getDFD_CODE(): string;
     export const auth: Auth;
 }

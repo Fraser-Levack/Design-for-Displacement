@@ -1,7 +1,7 @@
 import { initializeApp } from "firebase/app";
 import { getAnalytics } from "firebase/analytics";
 import 'firebase/database';
-import { getDatabase, ref, set, onValue } from 'firebase/database';
+import { getDatabase, get, ref, set, onValue } from 'firebase/database';
 import { getAuth, onAuthStateChanged } from 'firebase/auth';
 
 
@@ -96,6 +96,41 @@ export const reindexBlocks = (blockPath) => {
             });
         }
     });
+};
+
+// Function to insert a new block at a specific position and shift higher blocks
+export const insertBlockData = async (targetId, contentInfo, blockPath) => {
+    const blocksRef = ref(db, blockPath);
+
+    // Read all blocks
+    const snapshot = await get(blocksRef); // Use get to read data once
+    const data = snapshot.val();
+
+    if (data) {
+        // Convert blocks to an array and sort by ID
+        const blocksArray = Object.keys(data).map(key => ({
+            id: parseInt(key, 10),
+            ...data[key]
+        }));
+        blocksArray.sort((a, b) => a.id - b.id);
+
+        // Find blocks with IDs >= targetId and increment their IDs by 1
+        const updatedBlocks = blocksArray.reduce((acc, block) => {
+            if (block.id >= targetId) {
+                acc[block.id + 1] = { content: block.content }; // Shift block up
+            } else {
+                acc[block.id] = { content: block.content }; // Leave block unchanged
+            }
+            return acc;
+        }, {});
+
+        // Add the new block at the target position
+        updatedBlocks[targetId] = { content: contentInfo };
+
+        // Save the updated blocks back to the database
+        await set(blocksRef, updatedBlocks);
+        console.log('New block inserted and blocks reindexed');
+    }
 };
 
 export const auth = getAuth(app);

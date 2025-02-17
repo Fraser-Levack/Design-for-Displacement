@@ -17,3 +17,8 @@
 .highlight {
   color: green;
 }
+
+.add-btn{
+  margin: 1rem 0;
+  cursor: pointer;
+}
