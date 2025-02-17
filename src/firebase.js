@@ -55,6 +55,7 @@ export const updateBlockData = (blockId, contentInfo, blockPath) => {
 export const deleteBlockData = (blockId, blockPath) => {
     set(ref(db, blockPath + blockId), null).then( () => {
         console.log('Data is deleted');
+        reindexBlocks(blockPath);
     })
 };
 
@@ -66,6 +67,34 @@ export const getDFD_CODE = async () => {
             const data = snapshot.val();
             resolve(data);
         }, reject);
+    });
+};
+
+// Function to reindex blocks
+export const reindexBlocks = (blockPath) => {
+    const blocksRef = ref(db, blockPath);
+    onValue(blocksRef, (snapshot) => {
+        const data = snapshot.val();
+        if (data) {
+            const blocksArray = Object.keys(data).map(key => ({
+                id: parseInt(key, 10),
+                ...data[key]
+            }));
+
+            // Sort blocks by their current id
+            blocksArray.sort((a, b) => a.id - b.id);
+
+            // Reindex blocks
+            const indexedBlocks = blocksArray.reduce((acc, block, index) => {
+                acc[index] = { content: block.content };
+                return acc;
+            }, {});
+
+            // Save indexed blocks back to the database
+            set(blocksRef, indexedBlocks).then(() => {
+                console.log('Blocks indexed correctly');
+            });
+        }
     });
 };
 
