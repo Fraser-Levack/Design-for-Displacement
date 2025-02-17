@@ -5,6 +5,5 @@ declare module '../firebase' {
     export function readAllBlocks(callback: (data: { [key: string]: { id: number; content: string; }; }) => void): void;
     export function deleteBlockData(blockId: string): void;
     export function updateBlockData(blockId: string, content: string): void;
-    export function getDFD_CODE(): string;
     export const auth: Auth;
 }

@@ -58,15 +58,4 @@ export const deleteBlockData = (blockId, blockPath) => {
     })
 };
 
-// function to get DFD_CODE for extra sign in security
-export const getDFD_CODE = async () => {
-    const dfdCodeRef = ref(db, 'DFD_CODE');
-    return new Promise((resolve, reject) => {
-        onValue(dfdCodeRef, (snapshot) => {
-            const data = snapshot.val();
-            resolve(data);
-        }, reject);
-    });
-};
-
 export const auth = getAuth(app);

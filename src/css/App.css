@@ -1,0 +1,43 @@
+#root {
+  margin: 0 0;
+  padding-top: 0;
+  text-align: center;
+  align-content: center;
+  background-color: var(--background-color);
+  color: var(--text-color);
+}
+
+.page-content {
+  display: flex;
+  flex-direction: column;
+}
+
+.map-content{
+  flex-grow: 0;
+  flex-shrink: 0;
+  flex-basis: auto;
+  margin-top:8rem;
+  height: 25rem;
+}
+
+.fade-enter {
+  opacity: 0;
+  transform: translateY(10px);
+}
+
+.fade-enter-active {
+  opacity: 1;
+  transform: translateY(0);
+  transition: opacity 0.4s, transform 0.4s;
+}
+
+.fade-exit {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.fade-exit-active {
+  opacity: 0;
+  transform: translateY(-10px);
+  transition: opacity 0.4s, transform 0.4s;
+}

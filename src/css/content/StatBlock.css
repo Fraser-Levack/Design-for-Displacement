@@ -1,0 +1,53 @@
+.stat-block {
+  padding: 0 2rem;
+  margin: 0 4rem 0.5rem 4rem;
+
+}
+
+.stat-block h2 {
+  text-align: left;
+  margin-left: 3rem;
+}
+.stats {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-evenly;
+  align-items: center;
+}
+
+.stats .stat {
+  width:30%;
+  text-align: center;
+  margin: 0;
+}
+
+.stats .stat-four {
+  width:25%;
+  text-align: center;
+  margin: 0;
+}
+
+.stats .stat:nth-child(2) {
+  border-left: 4px solid var(--text-color);
+  border-right: 4px solid var(--text-color);
+}
+
+.stats .stat-four h1{
+  font-size: 5rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.stats .stat h1 {
+  font-size: 6rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+.stats .stat p {
+  font-size: 0.7rem;
+  font-weight: bolder;
+  margin: 0;
+}
+
+

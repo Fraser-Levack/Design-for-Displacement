@@ -1,0 +1,46 @@
+.switch-content {
+    position: relative;
+    z-index: 6;
+    width: fit-content;
+    left: 80%;
+    top: -10%;
+    padding: 0.5rem;
+    display: flex;
+    flex-direction: column;
+
+    cursor: pointer;
+}
+
+.switch-button {
+    border-radius: 1rem;
+    border : 2px solid var(--text-color);
+    position: relative;
+    content: "";
+    height: 2rem;
+    width: 4rem;
+    background-color: var(--secondary-color);
+}
+
+.switch-circle {
+    position: relative;
+    content: "";
+    height: 1.8rem;
+    width: 1.8rem;
+    background-color: var(--text-color);
+    border-radius: 0.9rem;
+    margin: 0.1rem;
+    transition: all .5s ease;
+}
+
+.switch-button .active {
+    transform: translateX(110%);
+}
+
+.switch-text {
+    position: relative;
+    color: var(--text-color);
+    font-size: 0.70em;
+    margin-right: 3rem;
+    min-width: 5rem;
+    transition: color 0.2s ease;
+}
