@@ -4,6 +4,7 @@ import { handleSignUp } from "../../utils/auth.ts";
 // eslint-disable-next-line @typescript-eslint/ban-ts-comment
 // @ts-expect-error
 import { getDFD_CODE } from '../../firebase';
+import '../../css/admin/SignUp.css'; // Import the external CSS file
 
 function SignUp() {
     const navigate = useNavigate();
@@ -55,37 +56,49 @@ function SignUp() {
     }
 
     return (
-        <div>
-            <h1>Sign Up</h1>
-            <form onSubmit={handleSubmit}>
-                <input name="email" type="email" placeholder="Email" />
+        <div className="container">
+            <h1 className="title">Sign Up</h1>
+            <form onSubmit={handleSubmit} className="form">
+                <label className="label">Email:</label>
+                <input
+                    name="email"
+                    type="email"
+                    placeholder="Enter your email"
+                    className="input"
+                />
                 <br />
+                <label className="label">Password:</label>
                 <input
                     name="password"
                     type="password"
-                    placeholder="Password"
+                    placeholder="Enter your password"
                     value={password}
                     onChange={(e) => setPassword(e.target.value)}
+                    className="input"
                 />
                 <br />
+                <label className="label">Confirm Password:</label>
                 <input
                     name="confirmPassword"
                     type="password"
-                    placeholder="Confirm Password"
+                    placeholder="Confirm your password"
                     value={confirmPassword}
                     onChange={(e) => setConfirmPassword(e.target.value)}
+                    className="input"
                 />
                 <br />
-                {error && <p style={{ color: 'red' }}>{error}</p>}
+                {error && <p className="error">{error}</p>}
+                <label className="label">Six-Digit DFD Code:</label>
                 <input
                     name="code"
                     type="text"
                     placeholder="Enter six-digit code"
                     value={enteredCode}
                     onChange={(e) => setEnteredCode(e.target.value)}
+                    className="input"
                 />
                 <br />
-                <button type="submit">Sign Up</button>
+                <button type="submit" className="button">Sign Up</button>
             </form>
         </div>
     );
