@@ -7,6 +7,11 @@ import InfoBlock from '../content/InfoBlock.tsx';
 import Image from "../content/Image.tsx";
 import CodeWidget from "./CodeWidget.tsx";
 import '../../css/admin/ContentEdit.css';
+import FourBlock from "../content/FourBlock.tsx";
+import QuoteBlock from "../content/QuoteBlock.tsx";
+import StatBlock from "../content/StatBlock.tsx";
+import GeneralSwitch from "../control/GeneralSwitch.tsx";
+import CongoCaseStudy from "../content/CongoCaseStudy.tsx";
 
 interface props {
     blockId?: number;
@@ -118,7 +123,7 @@ function ContentEdit ({blockId, blockContent, blockPath}: props) {
             </div>
             <div className={`jsx-preview ${!isPreview ? 'closed' : ''}`}>
                 <JSXParser
-                    components={{InfoBlock, Image}}
+                    components={{InfoBlock, Image, FourBlock, QuoteBlock, StatBlock, GeneralSwitch, CongoCaseStudy}}
                     jsx={blockContent}
                 />
             </div>

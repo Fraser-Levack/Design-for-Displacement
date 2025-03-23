@@ -3,7 +3,7 @@ import React from 'react';
 import '../../css/content/FourBlock.css';
 
 interface Props {
-    children: React.ReactNode;
+    children?: React.ReactNode;
 }
 
 function FourBlock ({ children }: Props) {

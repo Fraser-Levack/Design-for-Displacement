@@ -2,7 +2,7 @@ import React from "react";
 import "../../css/content/QuoteBlock.css";
 
 interface Props {
-    children: React.ReactNode;
+    children?: React.ReactNode;
     source?: string;
     lightText?: boolean;
 }

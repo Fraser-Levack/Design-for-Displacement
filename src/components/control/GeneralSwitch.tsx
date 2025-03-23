@@ -3,10 +3,10 @@ import {useState} from 'react';
 import "../../css/control/GeneralSwitch.css";
 
 interface Props {
-    children1: React.ReactNode;
-    children2: React.ReactNode;
-    state1: string;
-    state2: string;
+    children1?: React.ReactNode;
+    children2?: React.ReactNode;
+    state1?: string;
+    state2?: string;
     right?: boolean;
 }
 

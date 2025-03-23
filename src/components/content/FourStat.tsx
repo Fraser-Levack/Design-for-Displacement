@@ -2,10 +2,10 @@ import React from 'react';
 import "../../css/content/StatBlock.css";
 
 interface Props {
-    stat1: React.ReactNode;
-    stat2: React.ReactNode;
-    stat3: React.ReactNode;
-    stat4: React.ReactNode;
+    stat1?: React.ReactNode;
+    stat2?: React.ReactNode;
+    stat3?: React.ReactNode;
+    stat4?: React.ReactNode;
 }
 
 function StatBlock({stat1, stat2, stat3, stat4}: Props) {
