@@ -1,0 +1,1 @@
+import{j as o}from"./index-Cg36wHkR.js";import{B as r}from"./BlockRenderer-BVjz6jb2.js";function c(){return o.jsx("div",{className:"macro-content",children:o.jsx(r,{blockPath:"blocks/macro/"})})}export{c as default};

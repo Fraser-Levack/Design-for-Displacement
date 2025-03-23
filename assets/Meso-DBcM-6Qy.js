@@ -1,0 +1,1 @@
+import{j as o}from"./index-Cg36wHkR.js";import{B as e}from"./BlockRenderer-BVjz6jb2.js";function t(){return o.jsx("div",{className:"meso-content",children:o.jsx(e,{blockPath:"blocks/meso/"})})}export{t as default};
